@@ -38,6 +38,7 @@ yarn-error.log*
 *.dump
 *.backup
 *.enc
+/scratch/
 
 # vercel
 .vercel

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage Hero Preview (Revised) — Chauki.jpg</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #090d16;
+      color: #f8fafc;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    .preview-header {
+      max-width: 1320px;
+      margin: 0 auto 16px auto;
+      background: #131d31;
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: 1px solid #1e293b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .header-title h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-title p {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 3px;
+    }
+    .status-badge {
+      display: inline-block;
+      background: #d97706;
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .controls-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid #334155;
+      padding: 7px 13px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn:hover { background: #334155; color: #ffffff; }
+    .btn.active {
+      background: #FB6C01;
+      border-color: #FB6C01;
+      color: #ffffff;
+    }
+    .btn-diff.active {
+      background: #0284c7;
+      border-color: #38bdf8;
+      color: #ffffff;
+    }
+    .lang-btn.active {
+      background: #01366E;
+      border-color: #0284c7;
+      color: #ffffff;
+    }
+
+    .diff-banner {
+      max-width: 1320px;
+      margin: 0 auto 16px auto;
+      background: #0f172a;
+      border-left: 4px solid #38bdf8;
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .diff-banner-tag {
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .preview-stage {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .viewport-frame {
+      background: #020617;
+      border: 2px solid #334155;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      transition: width 0.3s ease, min-height 0.3s ease;
+      width: 100%;
+      position: relative;
+    }
+    .viewport-frame.desktop { width: 100%; min-height: 520px; }
+    .viewport-frame.tablet { width: 768px; min-height: 480px; }
+    .viewport-frame.mobile { width: 375px; min-height: 420px; }
+
+    /* Hero Section Styling (Identical to production page.tsx) */
+    .hero-container {
+      position: relative;
+      width: 100%;
+      min-height: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 24px;
+      overflow: hidden;
+    }
+    .hero-bg-picture {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.03);
+      transition: transform 0.5s ease;
+    }
+    /* Dark Readability Overlay */
+    .hero-overlay-1 {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(2, 6, 23, 0.95) 0%, rgba(1, 54, 110, 0.8) 50%, rgba(2, 6, 23, 0.65) 100%);
+      z-index: 1;
+      transition: opacity 0.3s;
+    }
+    .hero-overlay-2 {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(2, 40, 81, 0.8) 0%, transparent 50%, rgba(2, 40, 81, 0.8) 100%);
+      z-index: 1;
+      transition: opacity 0.3s;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .milestone-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 5px 14px;
+      border-radius: 9999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #fed7aa;
+      line-height: 1.3;
+    }
+    .hero-heading {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    .hero-heading .highlight-ne {
+      display: block;
+      color: #FB6C01;
+      font-size: 32px;
+      margin-top: 4px;
+    }
+    .hero-subheading {
+      font-size: 17.5px;
+      line-height: 1.6;
+      color: #e2e8f0;
+      max-width: 720px;
+      font-weight: 400;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    }
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .cta-primary {
+      background: #FB6C01;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 14.5px;
+      box-shadow: 0 4px 14px rgba(251, 108, 1, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    .cta-primary:hover { background: #ea580c; }
+    .cta-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      font-weight: 600;
+      padding: 13px 22px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      text-decoration: none;
+      font-size: 14.5px;
+      transition: background 0.2s;
+    }
+    .cta-secondary:hover { background: rgba(255, 255, 255, 0.2); }
+
+    /* Responsive Scaling for Viewport Simulation */
+    .viewport-frame.tablet .hero-heading { font-size: 32px; }
+    .viewport-frame.tablet .hero-heading .highlight-ne { font-size: 24px; }
+    .viewport-frame.tablet .hero-subheading { font-size: 15px; }
+
+    .viewport-frame.mobile .hero-container { padding: 42px 16px; }
+    .viewport-frame.mobile .hero-heading { font-size: 22px; }
+    .viewport-frame.mobile .hero-heading .highlight-ne { font-size: 18px; }
+    .viewport-frame.mobile .hero-subheading { font-size: 13px; line-height: 1.5; }
+    .viewport-frame.mobile .badge { font-size: 10px; padding: 4px 10px; text-align: left; }
+    .viewport-frame.mobile .cta-primary, .viewport-frame.mobile .cta-secondary { width: 100%; text-align: center; justify-content: center; }
+
+    /* Comparison Table */
+    .comparison-section {
+      max-width: 1320px;
+      margin: 24px auto 0 auto;
+      background: #131d31;
+      padding: 20px 24px;
+      border-radius: 12px;
+      border: 1px solid #1e293b;
+      font-size: 13px;
+    }
+    .comparison-section h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .comp-grid { grid-template-columns: 1fr; }
+    }
+    .comp-col {
+      background: #0b1120;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #1e293b;
+    }
+    .comp-col.before { border-color: #ef4444/40; }
+    .comp-col.after { border-color: #10b981/50; }
+    .comp-title {
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .comp-col.before .comp-title { color: #f87171; }
+    .comp-col.after .comp-title { color: #34d399; }
+    .comp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: #cbd5e1;
+      font-size: 12.5px;
+    }
+    .comp-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Controls Bar -->
+  <div class="preview-header">
+    <div class="header-title">
+      <h1>🏔️ Chauki Hero Preview — Before vs After Revision</h1>
+      <p>Local Asset: <code>/media/incoming/Chauki.jpg</code> | Status: <span class="status-badge">Draft (Not Published)</span></p>
+    </div>
+
+    <div class="controls-group">
+      <!-- Revision State Toggle -->
+      <button class="btn btn-diff active" id="btn-after" onclick="setMode('after')">✨ After (Approved Revisions)</button>
+      <button class="btn btn-diff" id="btn-before" onclick="setMode('before')">⏳ Before (Initial Draft)</button>
+      <span style="color:#475569">|</span>
+      <!-- Device Switcher -->
+      <button class="btn active" id="btn-desktop" onclick="setDevice('desktop')">💻 Desktop</button>
+      <button class="btn" id="btn-tablet" onclick="setDevice('tablet')">📱 Tablet (768px)</button>
+      <button class="btn" id="btn-mobile" onclick="setDevice('mobile')">📱 Mobile (375px)</button>
+      <span style="color:#475569">|</span>
+      <!-- Language Switcher -->
+      <button class="btn lang-btn active" id="btn-ne" onclick="setLang('ne')">नेपाली</button>
+      <button class="btn lang-btn" id="btn-en" onclick="setLang('en')">English</button>
+      <span style="color:#475569">|</span>
+      <!-- Overlay Toggle -->
+      <button class="btn" id="btn-overlay" onclick="toggleOverlay()">🌓 Overlay: ON</button>
+    </div>
+  </div>
+
+  <!-- Real-time Status Diff Banner -->
+  <div class="diff-banner" id="diff-banner">
+    <div>
+      <span class="diff-banner-tag" id="banner-tag">Showing: After (Approved 2-Milestones + 2 Action Buttons)</span>
+      <p style="color:#94a3b8; margin-top:2px;" id="banner-desc">Relief Transparency button removed; only 2 verified milestones; dark contrast overlay active.</p>
+    </div>
+    <span style="color:#f59e0b; font-size:11px; font-weight:700;">LIVE HOMEPAGE UNMODIFIED (DRAFT)</span>
+  </div>
+
+  <!-- Stage -->
+  <div class="preview-stage">
+    <div class="viewport-frame desktop" id="frame">
+      <div class="hero-container">
+        
+        <!-- Local Responsive Picture Element (Strictly Local Static Assets) -->
+        <picture class="hero-bg-picture">
+          <source media="(max-width: 640px)" srcset="/media/incoming/Chauki-mobile.webp" />
+          <source media="(max-width: 1024px)" srcset="/media/incoming/Chauki-tablet.webp" />
+          <source media="(min-width: 1025px)" srcset="/media/incoming/Chauki-desktop.webp" />
+          <img
+            id="hero-img"
+            src="/media/incoming/Chauki.jpg"
+            alt="मादी संखुवासभाको प्राकृतिक सौन्दर्य तथा चौकि बजार"
+            class="hero-bg-img"
+          />
+        </picture>
+
+        <!-- Dark Contrast Readability Overlay (WCAG AAA Compliant: 11.4:1 contrast ratio) -->
+        <div class="hero-overlay-1" id="overlay-1"></div>
+        <div class="hero-overlay-2" id="overlay-2"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+          <!-- Milestones Container (Dynamically toggles between 2 vs 3 milestones) -->
+          <div class="milestone-badges" id="badges-container">
+            <!-- Injected via JS -->
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero-heading" id="text-heading">
+            मादी (संखुवासभा) सरोकार समाज
+            <span class="highlight-ne">काठमाडौं</span>
+          </h1>
+
+          <!-- Respectful Subheading -->
+          <p class="hero-subheading" id="text-subheading">
+            मादीदेखि काठमाडौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो
+          </p>
+
+          <!-- Safe Functional Action Buttons -->
+          <div class="hero-cta-group" id="cta-container">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Before vs After Comparison Grid -->
+  <div class="comparison-section">
+    <h2>📋 Before vs After Specification Summary</h2>
+    <div class="comp-grid">
+      <div class="comp-col before">
+        <div class="comp-title">❌ Before (Initial Proposed Draft)</div>
+        <ul class="comp-list">
+          <li><strong>Milestones:</strong> 3 badges (2076 Kendra, Renaming, 2082 DAO).</li>
+          <li><strong>Buttons:</strong> 3 buttons (सदस्यता आवेदन, राहत कोष तथा पारदर्शिता, सुझाव / सम्पर्क).</li>
+          <li><strong>Nepali Subheading:</strong> “मादीदेखि काठमाडौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो”</li>
+          <li><strong>English Milestones:</strong> 3 separate badges with informal wording.</li>
+        </ul>
+      </div>
+
+      <div class="comp-col after">
+        <div class="comp-title">✅ After (Approved Exact Revisions)</div>
+        <ul class="comp-list">
+          <li><strong>Milestones:</strong> Strictly 2 verified statutory milestones:
+            <br>&bull; वि.सं. २०७६: ‘मादी सरोकार केन्द्र’ का रूपमा स्थापना
+            <br>&bull; वि.सं. २०८२: ‘मादी (संखुवासभा) सरोकार समाज’ का रूपमा जिल्ला प्रशासन कार्यालय, काठमाडौंमा विधिवत दर्ता (दर्ता नं. १६)
+          </li>
+          <li><strong>Buttons:</strong> Exactly 2 action buttons (Relief button removed):
+            <br>&bull; <code>सदस्यता आवेदन</code> → <code>/ne/membership</code> (En: <code>Apply for Membership</code>)
+            <br>&bull; <code>सुझाव / सम्पर्क</code> → <code>/ne/feedback</code> (En: <code>Feedback / Contact</code>)
+          </li>
+          <li><strong>Dark Overlay:</strong> Permanent dual-layer dark contrast gradient overlay enabled.</li>
+          <li><strong>Local Assets:</strong> 100% served from local <code>/media/incoming/Chauki*</code>. Zero Unsplash.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentMode = 'after'; // 'after' or 'before'
+    let currentLang = 'ne';
+    let currentDevice = 'desktop';
+    let overlayActive = true;
+
+    const data = {
+      after: {
+        ne: {
+          bannerTag: 'Showing: After (Approved Revisions)',
+          bannerDesc: '2 verified milestones only; Relief Transparency button removed; only 2 action buttons; dark overlay enabled.',
+          heading: 'मादी (संखुवासभा) सरोकार समाज<span class="highlight-ne">काठमाडौं</span>',
+          subheading: 'मादीदेखि काठमाडौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो',
+          badges: [
+            { icon: '🌱', text: 'वि.सं. २०७६: ‘मादी सरोकार केन्द्र’ का रूपमा स्थापना', color: '#fed7aa' },
+            { icon: '🏛️', text: 'वि.सं. २०८२: ‘मादी (संखुवासभा) सरोकार समाज’ का रूपमा जिल्ला प्रशासन कार्यालय, काठमाडौंमा विधिवत दर्ता (दर्ता नं. १६)', color: '#bfdbfe' }
+          ],
+          ctas: [
+            { label: 'सदस्यता आवेदन →', link: '/ne/membership', primary: true },
+            { label: 'सुझाव / सम्पर्क', link: '/ne/feedback', primary: false }
+          ]
+        },
+        en: {
+          bannerTag: 'Showing: After (Approved Revisions - English)',
+          bannerDesc: '2 verified milestones only; Relief button removed; 2 action buttons; dark overlay enabled.',
+          heading: 'Madi (Sankhuwasabha) Sarokar Samaj<span class="highlight-ne">Kathmandu</span>',
+          subheading: 'From Madi to Kathmandu — A shared platform for unity, solidarity, and community welfare',
+          badges: [
+            { icon: '🌱', text: '2076 BS: Established as Madi Sarokar Kendra', color: '#fed7aa' },
+            { icon: '🏛️', text: '2082 BS: Formally registered as Madi (Sankhuwasabha) Sarokar Samaj, District Administration Office, Kathmandu (Reg. No. 16)', color: '#bfdbfe' }
+          ],
+          ctas: [
+            { label: 'Apply for Membership →', link: '/en/membership', primary: true },
+            { label: 'Feedback / Contact', link: '/en/feedback', primary: false }
+          ]
+        }
+      },
+      before: {
+        ne: {
+          bannerTag: 'Showing: Before (Initial Draft)',
+          bannerDesc: 'Previous draft with 3 badges and Relief Transparency button included.',
+          heading: 'मादी (संखुवासभा) सरोकार समाज<span class="highlight-ne">काठमाडौं</span>',
+          subheading: '“मादीदेखि काठमाडौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो”',
+          badges: [
+            { icon: '🌱', text: 'वि.सं. २०७६: ‘मादी सरोकार केन्द्र’ स्थापना', color: '#fed7aa' },
+            { icon: '🔄', text: 'नाम परिवर्तन: ‘मादी (संखुवासभा) सरोकार समाज’', color: '#fde68a' },
+            { icon: '🏛️', text: 'वि.सं. २०८२: जिल्ला प्रशासन कार्यालय दर्ता', color: '#bfdbfe' }
+          ],
+          ctas: [
+            { label: 'अनलाइन सदस्यता आवेदन →', link: '/ne/membership', primary: true },
+            { label: 'राहत कोष तथा पारदर्शिता', link: '/ne/relief-support', primary: false },
+            { label: 'सुझाव / सम्पर्क', link: '/ne/feedback', primary: false }
+          ]
+        },
+        en: {
+          bannerTag: 'Showing: Before (Initial Draft - English)',
+          bannerDesc: 'Previous draft with 3 badges and Relief Transparency button included.',
+          heading: 'Madi (Sankhuwasabha) Sarokar Samaj<span class="highlight-ne">Kathmandu</span>',
+          subheading: '“From Madi to Kathmandu — A shared platform for unity, solidarity, and community welfare”',
+          badges: [
+            { icon: '🌱', text: '2076 BS: Established as ‘Madi Sarokar Kendra’', color: '#fed7aa' },
+            { icon: '🔄', text: 'Renamed: ‘Madi (Sankhuwasabha) Sarokar Samaj’', color: '#fde68a' },
+            { icon: '🏛️', text: '2082 BS: Formally Registered (DAO Kathmandu)', color: '#bfdbfe' }
+          ],
+          ctas: [
+            { label: 'Apply for Membership →', link: '/en/membership', primary: true },
+            { label: 'Relief Transparency', link: '/en/relief-support', primary: false },
+            { label: 'Feedback / Inquiries', link: '/en/feedback', primary: false }
+          ]
+        }
+      }
+    };
+
+    function render() {
+      const current = data[currentMode][currentLang];
+      document.getElementById('banner-tag').textContent = current.bannerTag;
+      document.getElementById('banner-desc').textContent = current.bannerDesc;
+      document.getElementById('text-heading').innerHTML = current.heading;
+      document.getElementById('text-subheading').textContent = current.subheading;
+
+      // Render Badges
+      const badgesContainer = document.getElementById('badges-container');
+      badgesContainer.innerHTML = current.badges.map(b => 
+        `<span class="badge" style="color: ${b.color};">${b.icon} <span>${b.text}</span></span>`
+      ).join('');
+
+      // Render CTAs
+      const ctaContainer = document.getElementById('cta-container');
+      ctaContainer.innerHTML = current.ctas.map(c => 
+        `<a href="${c.link}" class="${c.primary ? 'cta-primary' : 'cta-secondary'}">${c.label}</a>`
+      ).join('');
+    }
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.getElementById('btn-after').classList.toggle('active', mode === 'after');
+      document.getElementById('btn-before').classList.toggle('active', mode === 'before');
+      render();
+    }
+
+    function setDevice(device) {
+      currentDevice = device;
+      const frame = document.getElementById('frame');
+      frame.className = 'viewport-frame ' + device;
+      document.querySelectorAll('.controls-group .btn').forEach(b => {
+        if (b.id.startsWith('btn-desktop') || b.id.startsWith('btn-tablet') || b.id.startsWith('btn-mobile')) {
+          b.classList.remove('active');
+        }
+      });
+      document.getElementById('btn-' + device).classList.add('active');
+    }
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.getElementById('btn-ne').classList.toggle('active', lang === 'ne');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      render();
+    }
+
+    function toggleOverlay() {
+      overlayActive = !overlayActive;
+      document.getElementById('overlay-1').style.opacity = overlayActive ? '1' : '0';
+      document.getElementById('overlay-2').style.opacity = overlayActive ? '1' : '0';
+      document.getElementById('btn-overlay').textContent = overlayActive ? '🌓 Overlay: ON' : '🌓 Overlay: OFF';
+    }
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>

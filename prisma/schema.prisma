@@ -1,0 +1,353 @@
+// Prisma Schema for Madi SSS Platform
+// Conforming with Prisma 7 decoupled datasource configuration
+
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ---------------------------------------------------------
+// ENUMS
+// ---------------------------------------------------------
+
+enum AdminRole {
+  SUPERADMIN
+  EDITOR
+  AUDITOR
+
+  @@map("admin_role")
+}
+
+enum AccountType {
+  BANK
+  CASH
+  PROJECT
+  RESERVE
+  SPECIAL
+
+  @@map("account_type")
+}
+
+enum TransferStatus {
+  DRAFT
+  POSTED
+  REVERSED
+  CANCELLED
+
+  @@map("transfer_status")
+}
+
+enum LegType {
+  SOURCE
+  DESTINATION
+
+  @@map("leg_type")
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+
+  @@map("transaction_type")
+}
+
+enum PublicationStatus {
+  DRAFT
+  PENDING_REVIEW
+  APPROVED
+  PUBLISHED
+  ARCHIVED
+
+  @@map("publication_status")
+}
+
+enum VerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+  FLAGGED_FOR_REVIEW
+
+  @@map("verification_status")
+}
+
+enum PaymentMethod {
+  BANK_TRANSFER
+  ESEWA
+  KHALTI
+  CONNECT_IPS
+  CASH_DEPOSIT
+  OTHER
+
+  @@map("payment_method")
+}
+
+enum MembershipTier {
+  ORDINARY
+  LIFE
+  FOUNDER
+  HONORARY
+
+  @@map("membership_tier")
+}
+
+enum MembershipStatus {
+  ACTIVE
+  EXPIRED
+  PENDING_RENEWAL
+  SUSPENDED
+
+  @@map("membership_status")
+}
+
+// ---------------------------------------------------------
+// CORE AUTH & ACCESS
+// ---------------------------------------------------------
+
+model AdminUser {
+  id        String    @id @default(uuid()) @map("id") @db.Uuid
+  email     String    @unique @map("email")
+  fullName  String    @map("full_name")
+  role      AdminRole @map("role")
+  isActive  Boolean   @default(true) @map("is_active")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+
+  createdTransfers   InternalTransfer[] @relation("CreatedTransfers")
+  postedTransfers    InternalTransfer[] @relation("PostedTransfers")
+  reversedTransfers  InternalTransfer[] @relation("ReversedTransfers")
+  cancelledTransfers InternalTransfer[] @relation("CancelledTransfers")
+
+  @@map("admin_users")
+}
+
+// ---------------------------------------------------------
+// FINANCIAL SUBSYSTEM (Madi SSS Strict NPR Accounting)
+// ---------------------------------------------------------
+
+model FinancialAccount {
+  id                String      @id @default(uuid()) @map("id") @db.Uuid
+  accountCode       String      @unique @map("account_code")
+  nameNe            String      @map("name_ne")
+  nameEn            String      @map("name_en")
+  accountType       AccountType @map("account_type")
+  bankName          String?     @map("bank_name")
+  accountNumberMask String?     @map("account_number_mask")
+  currentBalance    Decimal     @default(0.00) @map("current_balance") @db.Decimal(14, 2)
+  openingBalance    Decimal     @default(0.00) @map("opening_balance") @db.Decimal(14, 2)
+  currency          String      @default("NPR") @map("currency")
+  isActive          Boolean     @default(true) @map("is_active")
+  createdAt         DateTime    @default(now()) @map("created_at")
+  updatedAt         DateTime    @updatedAt @map("updated_at")
+
+  sourceTransfers      InternalTransfer[]     @relation("SourceAccount")
+  destinationTransfers InternalTransfer[]     @relation("DestinationAccount")
+  transactions         FinancialTransaction[]
+
+  @@map("financial_accounts")
+}
+
+model InternalTransfer {
+  id                   String         @id @default(uuid()) @map("id") @db.Uuid
+  sourceAccountId      String         @map("source_account_id") @db.Uuid
+  destinationAccountId String         @map("destination_account_id") @db.Uuid
+  amountNpr            Decimal        @map("amount_npr") @db.Decimal(14, 2)
+  currency             String         @default("NPR") @map("currency")
+  status               TransferStatus @default(DRAFT) @map("status")
+  purposeNe            String         @map("purpose_ne")
+  purposeEn            String         @map("purpose_en")
+  notes                String?        @map("notes") @db.Text
+  voucherNumber        String?        @unique @map("voucher_number")
+
+  createdByAdminId   String     @map("created_by_admin_id") @db.Uuid
+  postedByAdminId    String?    @map("posted_by_admin_id") @db.Uuid
+  postedAt           DateTime?  @map("posted_at")
+  reversedByAdminId  String?    @map("reversed_by_admin_id") @db.Uuid
+  reversedAt         DateTime?  @map("reversed_at")
+  reversalReason     String?    @map("reversal_reason") @db.Text
+  cancelledByAdminId String?    @map("cancelled_by_admin_id") @db.Uuid
+  cancelledAt        DateTime?  @map("cancelled_at")
+  cancellationReason String?    @map("cancellation_reason") @db.Text
+  createdAt          DateTime   @default(now()) @map("created_at")
+  updatedAt          DateTime   @updatedAt @map("updated_at")
+
+  sourceAccount      FinancialAccount       @relation("SourceAccount", fields: [sourceAccountId], references: [id], onDelete: Restrict)
+  destinationAccount FinancialAccount       @relation("DestinationAccount", fields: [destinationAccountId], references: [id], onDelete: Restrict)
+  createdByAdmin     AdminUser              @relation("CreatedTransfers", fields: [createdByAdminId], references: [id], onDelete: Restrict)
+  postedByAdmin      AdminUser?             @relation("PostedTransfers", fields: [postedByAdminId], references: [id], onDelete: Restrict)
+  reversedByAdmin    AdminUser?             @relation("ReversedTransfers", fields: [reversedByAdminId], references: [id], onDelete: Restrict)
+  cancelledByAdmin   AdminUser?             @relation("CancelledTransfers", fields: [cancelledByAdminId], references: [id], onDelete: Restrict)
+  legs               FinancialTransaction[]
+
+  @@map("internal_transfers")
+}
+
+model FinancialTransaction {
+  id                       String           @id @default(uuid()) @map("id") @db.Uuid
+  masterTransferId         String?          @map("master_transfer_id") @db.Uuid
+  legType                  LegType          @map("leg_type")
+  type                     TransactionType  @map("type")
+  accountId                String           @map("account_id") @db.Uuid
+  amountNpr                Decimal          @map("amount_npr") @db.Decimal(14, 2)
+  currency                 String           @default("NPR") @map("currency")
+  isReversal               Boolean          @default(false) @map("is_reversal")
+  reversalOfTransactionId  String?          @map("reversal_of_transaction_id") @db.Uuid
+  createdAt                DateTime         @default(now()) @map("created_at")
+
+  masterTransfer           InternalTransfer?       @relation(fields: [masterTransferId], references: [id], onDelete: Restrict)
+  account                  FinancialAccount        @relation(fields: [accountId], references: [id], onDelete: Restrict)
+  reversalOfTransaction    FinancialTransaction?   @relation("TransactionReversal", fields: [reversalOfTransactionId], references: [id], onDelete: Restrict)
+  reversedByTransactions   FinancialTransaction[]  @relation("TransactionReversal")
+
+  @@map("financial_transactions")
+}
+
+model ConsumedNonce {
+  nonce                String   @id @map("nonce")
+  action               String   @map("action")
+  transferId           String   @map("transfer_id") @db.Uuid
+  idempotencyKey       String   @map("idempotency_key") @db.Uuid
+  adminId              String   @map("admin_id") @db.Uuid
+  keyId                String   @map("key_id")
+  requestTimestamp     BigInt   @map("request_timestamp")
+  requestHash          String   @map("request_hash")
+  consumedInBusinessTx Boolean  @default(false) @map("consumed_in_business_tx")
+  consumedAt           DateTime @default(now()) @map("consumed_at")
+
+  @@map("consumed_nonces")
+}
+
+model IdempotencyRecord {
+  workflowName   String    @map("workflow_name")
+  idempotencyKey String    @map("idempotency_key") @db.Uuid
+  transferId     String    @map("transfer_id") @db.Uuid
+  actorId        String    @map("actor_id") @db.Uuid
+  requestHash    String    @map("request_hash")
+  status         String    @map("status")
+  responsePayload Json?    @map("response_payload")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  lockedAt       DateTime  @default(now()) @map("locked_at")
+
+  @@id([workflowName, idempotencyKey])
+  @@map("idempotency_records")
+}
+
+model AuditLog {
+  id            String   @id @default(uuid()) @map("id") @db.Uuid
+  action        String   @map("action")
+  entityType    String   @map("entity_type")
+  entityId      String   @map("entity_id")
+  actorId       String?  @map("actor_id") @db.Uuid
+  transactionId BigInt   @map("transaction_id")
+  payload       Json     @default("{}") @map("payload")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("audit_logs")
+}
+
+// ---------------------------------------------------------
+// COMMITTEE, COMMUNITY & MEMBERSHIP
+// ---------------------------------------------------------
+
+model CommitteeMember {
+  id              String   @id @default(uuid()) @map("id") @db.Uuid
+  term            String   @map("term")
+  designationNe   String   @map("designation_ne")
+  designationEn   String   @map("designation_en")
+  nameNe          String   @map("name_ne")
+  nameEn          String   @map("name_en")
+  photoUrl        String?  @map("photo_url")
+  displayOrder    Int      @default(0) @map("display_order")
+  isExecutive     Boolean  @default(false) @map("is_executive")
+  contactNumber   String?  @map("contact_number")
+  email           String?  @map("email")
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@map("committee_members")
+}
+
+model GeneralMember {
+  id             String           @id @default(uuid()) @map("id") @db.Uuid
+  membershipNo   String           @unique @map("membership_no")
+  fullNameNe     String           @map("full_name_ne")
+  fullNameEn     String           @map("full_name_en")
+  tier           MembershipTier   @map("tier")
+  status         MembershipStatus @default(ACTIVE) @map("status")
+  phone          String?          @map("phone")
+  email          String?          @map("email")
+  madiAddressNe  String           @map("madi_address_ne")
+  ktmAddressNe   String           @map("ktm_address_ne")
+  joinedDate     DateTime         @default(now()) @map("joined_date")
+  createdAt      DateTime         @default(now()) @map("created_at")
+
+  @@map("general_members")
+}
+
+model SocialSupportCampaign {
+  id           String            @id @default(uuid()) @map("id") @db.Uuid
+  titleNe      String            @map("title_ne")
+  titleEn      String            @map("title_en")
+  descriptionNe String           @map("description_ne") @db.Text
+  descriptionEn String           @map("description_en") @db.Text
+  targetAmount Decimal           @map("target_amount") @db.Decimal(12, 2)
+  raisedAmount Decimal           @default(0.00) @map("raised_amount") @db.Decimal(12, 2)
+  status       PublicationStatus @default(DRAFT) @map("status")
+  coverImage   String?           @map("cover_image")
+  startDate    DateTime          @map("start_date")
+  endDate      DateTime?         @map("end_date")
+  createdAt    DateTime          @default(now()) @map("created_at")
+
+  @@map("social_support_campaigns")
+}
+
+model EventActivity {
+  id          String            @id @default(uuid()) @map("id") @db.Uuid
+  titleNe     String            @map("title_ne")
+  titleEn     String            @map("title_en")
+  summaryNe   String?           @map("summary_ne") @db.Text
+  summaryEn   String?           @map("summary_en") @db.Text
+  contentNe   String            @map("content_ne") @db.Text
+  contentEn   String            @map("content_en") @db.Text
+  eventDate   DateTime          @map("event_date")
+  venueNe     String?           @map("venue_ne")
+  venueEn     String?           @map("venue_en")
+  status      PublicationStatus @default(DRAFT) @map("status")
+  coverImage  String?           @map("cover_image")
+  createdAt   DateTime          @default(now()) @map("created_at")
+
+  @@map("event_activities")
+}
+
+model CondolenceRecord {
+  id               String            @id @default(uuid()) @map("id") @db.Uuid
+  deceasedNameNe   String            @map("deceased_name_ne")
+  deceasedNameEn   String            @map("deceased_name_en")
+  photoUrl         String?           @map("photo_url")
+  demiseDateBs     String            @map("demise_date_bs")
+  demiseDateAd     DateTime          @map("demise_date_ad")
+  madiVillageNe    String            @map("madi_village_ne")
+  tributeTextNe    String            @map("tribute_text_ne") @db.Text
+  tributeTextEn    String?           @map("tribute_text_en") @db.Text
+  status           PublicationStatus @default(DRAFT) @map("status")
+  publishedAt      DateTime?         @map("published_at")
+  createdAt        DateTime          @default(now()) @map("created_at")
+
+  @@map("condolence_records")
+}
+
+model OrganizationSetting {
+  id                  String   @id @default(uuid()) @map("id") @db.Uuid
+  orgNameNe           String   @map("org_name_ne")
+  orgNameEn           String   @map("org_name_en")
+  officeAddressNe     String   @map("office_address_ne")
+  officeAddressEn     String   @map("office_address_en")
+  contactPhonePrimary String   @map("contact_phone_primary")
+  contactEmailOfficial String  @map("contact_email_official")
+  facebookUrl         String?  @map("facebook_url")
+  youtubeUrl          String?  @map("youtube_url")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  @@map("organization_settings")
+}
