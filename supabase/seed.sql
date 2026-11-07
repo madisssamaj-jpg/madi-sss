@@ -7,10 +7,15 @@
 -- 1. ADMIN USERS (Staging Test Passwords hashed with standard bcrypt / argon2)
 INSERT INTO public.admin_users (id, email, password_hash, full_name, role, is_active)
 VALUES 
+    ('11111111-1111-1111-1111-111111111104', 'madisssamaj@gmail.com', '$2b$10$AprJ4lc1d6S3NTaL.FCv4Or4vBoJYFKepfs88.L0ft0BIhkSvjM3m', 'मादी प्रशासक (Superadmin)', 'SUPERADMIN', true),
     ('11111111-1111-1111-1111-111111111101', 'admin@madisss.org.np', '$2b$10$wB5W.y644e5/f/s6.hZ2hOUwB0kLwNqV9nI.1rV8W5c1K1pG9X6.6', 'मादी प्रशासक (Superadmin)', 'SUPERADMIN', true),
     ('11111111-1111-1111-1111-111111111102', 'editor@madisss.org.np', '$2b$10$wB5W.y644e5/f/s6.hZ2hOUwB0kLwNqV9nI.1rV8W5c1K1pG9X6.6', 'सामग्री सम्पादक (Editor)', 'EDITOR', true),
     ('11111111-1111-1111-1111-111111111103', 'auditor@madisss.org.np', '$2b$10$wB5W.y644e5/f/s6.hZ2hOUwB0kLwNqV9nI.1rV8W5c1K1pG9X6.6', 'लेखापरीक्षक (Auditor)', 'AUDITOR', true)
-ON CONFLICT (email) DO NOTHING;
+ON CONFLICT (email) DO UPDATE 
+SET password_hash = EXCLUDED.password_hash,
+    role = 'SUPERADMIN',
+    is_active = true,
+    full_name = 'मादी प्रशासक (Superadmin)';
 
 -- 2. FINANCIAL ACCOUNTS (Staging Ledger Seed)
 INSERT INTO public.financial_accounts (id, account_code, name_ne, name_en, account_type, bank_name, bank_account_number, current_balance, opening_balance, currency, is_active)
