@@ -27,8 +27,10 @@ export default async function AdminLayout({
     { href: `/${lang}/admin/reports`, labelNe: 'प्रतिवेदन तथा अडिट', labelEn: 'Reports', icon: '📄' },
     { href: `/${lang}/admin/notices`, labelNe: 'सूचना तथा समाचार', labelEn: 'Notices', icon: '📢' },
     { href: `/${lang}/admin/feedback`, labelNe: 'गुनासो तथा सुझाव', labelEn: 'Feedback Inbox', icon: '💬' },
-    { href: `/${lang}/admin/partners`, labelNe: 'साझेदारहरू', labelEn: 'Partners', icon: '🏢' },
+    { href: `/${lang}/admin/financial`, labelNe: 'वित्तीय हिसाब-किताब', labelEn: 'Financial Ledger', icon: '💳' },
     { href: `/${lang}/admin/transfers`, labelNe: 'आन्तरिक रकमान्तर', labelEn: 'Transfers', icon: '💰' },
+    { href: `/${lang}/admin/users`, labelNe: 'प्रशासक प्रयोगकर्ता', labelEn: 'Admin Users', icon: '👤' },
+    { href: `/${lang}/admin/partners`, labelNe: 'साझेदारहरू', labelEn: 'Partners', icon: '🏢' },
     { href: `/${lang}/admin/settings`, labelNe: 'साइट सेटिङ्स', labelEn: 'Settings', icon: '⚙️' },
   ];
 
