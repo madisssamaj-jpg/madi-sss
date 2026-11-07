@@ -192,3 +192,24 @@
 > - ⚠️ **आधिकारिक अडिट बिना राहत खर्च नबदल्नुहोस्:** राहत कोषको खर्च रकम कोषाध्यक्ष र लेखा समितिको प्रमाणीकरण बिना परिवर्तन गर्न पाइँदैन।
 > - ⚠️ **पासवर्ड सुरक्षित राख्नुहोस्:** आफ्नो एडमिन पासवर्ड अरुलाई नदिनुहोस् र सार्वजनिक कम्प्युटरमा काम सकेपछि अनिवार्य रूपमा **"बाहिरिनुहोस् (Sign Out)"** गर्नुहोस्।
 
+---
+
+## १२. संस्थागत इमेल तथा cPanel Webmail सञ्चालन (Institutional Email & Webmail Guide)
+
+संस्थाको आधिकारिक पत्राचार, सोधपुछ तथा सार्वजनिक सम्पर्कका लागि **`info@madisss.org.np`** इमेल खाता प्रयोग गरिन्छ।
+
+### १२.१ cPanel मा मेलबक्स सिर्जना र व्यवस्थापन:
+1. आफ्नो होस्टिङ सेवाप्रदायकले उपलब्ध गराएको **cPanel** मा लगइन गर्नुहोस्।
+2. **Email Accounts** सेक्सनमा जानुहोस् र **+ Create** बटनमा थिच्नुहोस्।
+3. **Domain:** `madisss.org.np` छान्नुहोस् र **Username:** `info` प्रविष्ट गर्नुहोस्।
+4. बलियो पासवर्ड (Strong Password) प्रविष्ट गरी **Create** गर्नुहोस्।
+5. अब **Webmail** (`https://mail.madisss.org.np:2096` वा `https://webmail.madisss.org.np`) मार्फत `info@madisss.org.np` मा लगइन गरी इमेलहरू हेर्न र उत्तर पठाउन सकिनेछ।
+
+### १२.२ Vercel DNS कन्फिगरेसन (cPanel इमेल सुचारु गर्न आवश्यक रेकर्डहरू):
+संस्थाको डोमेन नेमसर्भर Vercel DNS मा रहेकाले cPanel बाट इमेल आदानप्रदान गर्न Vercel Dashboard मा गई निम्न DNS रेकर्डहरू थप्नुपर्दछ:
+- **A Record:** Name: `mail` | Value: `<cPanel Server Shared IP>`
+- **MX Record:** Name: `@` | Priority: `10` | Value: `mail.madisss.org.np` (वा cPanel होस्टनेम)
+- **SPF (TXT) Record:** Name: `@` | Value: `v=spf1 +a +mx +ip4:<cPanel Server IP> ~all`
+- **DKIM (TXT) Record:** cPanel को *Email Deliverability* बाट प्राप्त हुने DKIM की (उदा: `default._domainkey`)
+- **DMARC (TXT) Record:** Name: `_dmarc` | Value: `v=DMARC1; p=none; sp=none; rua=mailto:info@madisss.org.np`
+
