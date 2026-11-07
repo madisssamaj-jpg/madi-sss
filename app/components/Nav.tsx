@@ -67,11 +67,11 @@ export default function Nav() {
             <span className="flex items-center gap-1.5 text-amber-200/95 font-medium">
               <span>✉️</span>
               <a
-                href="mailto:info@madisss.org.np"
+                href="mailto:madisssamaj@gmail.com"
                 className="hover:underline hover:text-white transition-colors"
                 title="Official Email"
               >
-                info@madisss.org.np
+                madisssamaj@gmail.com
               </a>
             </span>
           </div>

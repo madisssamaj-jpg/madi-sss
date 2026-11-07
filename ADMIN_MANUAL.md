@@ -194,22 +194,12 @@
 
 ---
 
-## १२. संस्थागत इमेल तथा cPanel Webmail सञ्चालन (Institutional Email & Webmail Guide)
+## १२. संस्थागत इमेल तथा सम्पर्क व्यवस्थापन (Institutional Email Guide)
 
-संस्थाको आधिकारिक पत्राचार, सोधपुछ तथा सार्वजनिक सम्पर्कका लागि **`info@madisss.org.np`** इमेल खाता प्रयोग गरिन्छ।
+संस्थाको आधिकारिक पत्राचार, सोधपुछ तथा सार्वजनिक सम्पर्कका लागि आधिकारिक इमेल खाता **`madisssamaj@gmail.com`** प्रयोग गरिन्छ।
 
-### १२.१ cPanel मा मेलबक्स सिर्जना र व्यवस्थापन:
-1. आफ्नो होस्टिङ सेवाप्रदायकले उपलब्ध गराएको **cPanel** मा लगइन गर्नुहोस्।
-2. **Email Accounts** सेक्सनमा जानुहोस् र **+ Create** बटनमा थिच्नुहोस्।
-3. **Domain:** `madisss.org.np` छान्नुहोस् र **Username:** `info` प्रविष्ट गर्नुहोस्।
-4. बलियो पासवर्ड (Strong Password) प्रविष्ट गरी **Create** गर्नुहोस्।
-5. अब **Webmail** (`https://mail.madisss.org.np:2096` वा `https://webmail.madisss.org.np`) मार्फत `info@madisss.org.np` मा लगइन गरी इमेलहरू हेर्न र उत्तर पठाउन सकिनेछ।
-
-### १२.२ Vercel DNS कन्फिगरेसन (cPanel इमेल सुचारु गर्न आवश्यक रेकर्डहरू):
-संस्थाको डोमेन नेमसर्भर Vercel DNS मा रहेकाले cPanel बाट इमेल आदानप्रदान गर्न Vercel Dashboard मा गई निम्न DNS रेकर्डहरू थप्नुपर्दछ:
-- **A Record:** Name: `mail` | Value: `<cPanel Server Shared IP>`
-- **MX Record:** Name: `@` | Priority: `10` | Value: `mail.madisss.org.np` (वा cPanel होस्टनेम)
-- **SPF (TXT) Record:** Name: `@` | Value: `v=spf1 +a +mx +ip4:<cPanel Server IP> ~all`
-- **DKIM (TXT) Record:** cPanel को *Email Deliverability* बाट प्राप्त हुने DKIM की (उदा: `default._domainkey`)
-- **DMARC (TXT) Record:** Name: `_dmarc` | Value: `v=DMARC1; p=none; sp=none; rua=mailto:info@madisss.org.np`
+### १२.१ आधिकारिक इमेल सञ्चालन:
+1. सचिवालय तथा कार्यसमितिले **`madisssamaj@gmail.com`** मार्फत आधिकारिक पत्राचार, सदस्यता प्रमाणीकरण र गुनासो/सुझावहरूको उत्तर व्यवस्थापन गर्दछ।
+2. वेबसाइटको शीर्ष हेडर, फुटर र सुझाव/सम्पर्क पृष्ठबाट सिधै सेवाग्राहीहरूले यस इमेलमा सम्पर्क गर्न सक्नेछन्।
+3. भविष्यमा आफ्नै डोमेन इमेल (`info@madisss.org.np`) सञ्चालन गर्न चाहेमा Google Workspace, Zoho Mail वा cPanel होस्टिङ मार्फत MX र SPF रेकर्ड Vercel DNS मा थप गरी सक्रिय गर्न सकिनेछ।
 

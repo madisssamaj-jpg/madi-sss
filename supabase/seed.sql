@@ -114,7 +114,7 @@ VALUES
         "sloganNe": "मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान",
         "sloganEn": "From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration",
         "contactPhone": "+977-1-4423456",
-        "contactEmail": "info@madisss.org.np",
+        "contactEmail": "madisssamaj@gmail.com",
         "officeAddressNe": "सुकेधारा, काठमाण्डौं, नेपाल",
         "officeAddressEn": "Sukedhara, Kathmandu, Nepal",
         "facebookUrl": "https://facebook.com/madisss",

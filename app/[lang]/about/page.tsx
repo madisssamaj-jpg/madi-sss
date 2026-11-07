@@ -152,23 +152,18 @@ export default async function AboutPage({
                   </dd>
                 </div>
 
-                {/* Contact Email / Institutional Disclaimer */}
+                {/* Contact Email */}
                 <div className="sm:col-span-2">
                   <dt className="text-gray-500 font-semibold">
                     {lang === 'ne' ? 'आधिकारिक इमेल:' : 'Official Email:'}
                   </dt>
                   <dd className="text-xs text-amber-900 font-medium mt-1 bg-amber-50 border border-amber-200 rounded-xl p-2.5">
-                    {settings.contactEmail ? (
-                      <a href={`mailto:${settings.contactEmail}`} className="text-[#01366E] font-bold hover:underline">
-                        {settings.contactEmail}
-                      </a>
-                    ) : (
-                      <span>
-                        {lang === 'ne'
-                          ? 'सक्रिय र नियमित हेरिने संस्थागत इमेल पुष्टि भएपछि मात्र सार्वजनिक सम्पर्क विवरण थपिनेछ।'
-                          : 'Public contact details will be added once an active and routinely monitored institutional email is confirmed.'}
-                      </span>
-                    )}
+                    <a
+                      href={`mailto:${settings.contactEmail || 'madisssamaj@gmail.com'}`}
+                      className="text-[#01366E] font-bold hover:underline"
+                    >
+                      {settings.contactEmail || 'madisssamaj@gmail.com'}
+                    </a>
                   </dd>
                 </div>
 

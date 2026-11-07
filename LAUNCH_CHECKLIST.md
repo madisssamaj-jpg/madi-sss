@@ -33,7 +33,7 @@ This checklist must be reviewed and signed off by the lead developer, the Madi S
   - [x] Footers, sitemaps, and constant references sanitized: no public link exposes the reference draft.
 - [x] Verified authentic contact details configured in Site Settings:
   - Phone: `+977-1-4423456`
-  - Email: `info@madisss.org.np`
+  - Email: `madisssamaj@gmail.com`
   - Secretariat: Ward 4, Sukedhara, Kathmandu
 - [x] **Official DAO Registration Certificate (दर्ता प्रमाणपत्र) Verification & Privacy Architecture:**
   - [x] Authentic CDO certificate uploaded from DAO Kathmandu issuance (Reg No: १६, Decision Date: २०८२/०४/२१, Society Registration Act 2034, Org: मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं).

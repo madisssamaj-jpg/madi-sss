@@ -249,8 +249,8 @@ export default function FeedbackPage({
           <p>🔒 {lang === 'ne' ? 'गोपनीयता प्रत्याभूति: तपाईंको सन्देश तथा फोन नम्बर सार्वजनिक गरिँदैन।' : 'Privacy Guarantee: All submissions are treated strictly confidential and never displayed publicly.'}</p>
           <p>
             {lang === 'ne'
-              ? 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं सचिवालय | आधिकारिक इमेल: info@madisss.org.np'
-              : 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu Secretariat | Official Email: info@madisss.org.np'}
+              ? 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं सचिवालय | आधिकारिक इमेल: madisssamaj@gmail.com'
+              : 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu Secretariat | Official Email: madisssamaj@gmail.com'}
           </p>
         </div>
       </div>

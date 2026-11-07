@@ -158,10 +158,10 @@ export default function Footer() {
               <div className="flex items-center gap-2 text-xs text-white bg-white/5 p-2 rounded-lg border border-white/10 mt-1">
                 <span className="shrink-0">✉️</span>
                 <a
-                  href="mailto:info@madisss.org.np"
+                  href="mailto:madisssamaj@gmail.com"
                   className="font-bold text-[#FB6C01] hover:text-orange-400 hover:underline transition-colors"
                 >
-                  info@madisss.org.np
+                  madisssamaj@gmail.com
                 </a>
               </div>
               <p className="flex items-center gap-2">

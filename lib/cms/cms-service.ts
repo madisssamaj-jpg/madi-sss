@@ -5164,7 +5164,7 @@ let siteSettingsStore: SiteSettings = {
   sloganNe: 'मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान',
   sloganEn: 'From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration',
   contactPhone: '', // Strictly no unverified placeholder phone numbers in production
-  contactEmail: 'info@madisss.org.np',
+  contactEmail: 'madisssamaj@gmail.com',
   officeAddressNe: 'काठमाण्डौं महानगरपालिका वडा नं. ४, सुकेधारा, काठमाण्डौं',
   officeAddressEn: 'Ward No. 4, Sukedhara, Kathmandu, Nepal',
   originalOrganizationNameNe: 'मादी सरोकार केन्द्र, काठमाण्डौं',

@@ -104,15 +104,15 @@ describe('Homepage Privacy & Content Governance Regression Suite', () => {
     }
   });
 
-  // Test 3: Official Communication: info@madisss.org.np is published across Nav, Footer, and Feedback
-  it('publishes official email info@madisss.org.np across public Nav, Footer, and Feedback components', async () => {
+  // Test 3: Official Communication: madisssamaj@gmail.com is published across Nav, Footer, and Feedback
+  it('publishes official email madisssamaj@gmail.com across public Nav, Footer, and Feedback components', async () => {
     const publicFilesToCheck = [
       path.join(rootDir, 'app', 'components', 'Nav.tsx'),
       path.join(rootDir, 'app', 'components', 'Footer.tsx'),
       path.join(rootDir, 'app', '[lang]', 'feedback', 'page.tsx'),
     ];
 
-    const officialEmail = 'info@madisss.org.np';
+    const officialEmail = 'madisssamaj@gmail.com';
 
     for (const filePath of publicFilesToCheck) {
       const content = fs.readFileSync(filePath, 'utf-8');
@@ -507,10 +507,10 @@ describe('Homepage Privacy & Content Governance Regression Suite', () => {
     assert.strictEqual(settings.registrationDateNe, '२०८२/०४/२१', 'Registration date must be २०८२/०४/२१');
     assert.ok(settings.registrationDateEn.includes('2082/04/21'), 'Registration date must be 2082/04/21 BS');
 
-    // 5. Inactive email is quarantined with safe disclaimer
+    // 5. Active official email madisssamaj@gmail.com is published
     assert.ok(
-      aboutSource.includes('सक्रिय र नियमित हेरिने संस्थागत इमेल पुष्टि भएपछि मात्र सार्वजनिक सम्पर्क विवरण थपिनेछ।'),
-      'About page must show institutional email disclaimer'
+      aboutSource.includes('madisssamaj@gmail.com'),
+      'About page must show official email madisssamaj@gmail.com'
     );
   });
 });
