@@ -140,20 +140,41 @@ export default function Nav() {
       {/* 3. Main Navigation Bar with All 11 Links */}
       <div 
         className="bg-[#002447] border-t border-white/10 shadow-inner w-full overflow-visible"
-        style={{ backgroundColor: '#002447', width: '100%', overflow: 'visible', display: 'block' }}
+        style={{
+          backgroundColor: '#002447',
+          width: '100%',
+          height: 'auto',
+          maxHeight: 'none',
+          overflow: 'visible',
+          display: 'block',
+          visibility: 'visible',
+          opacity: 1,
+        }}
       >
         <div 
           className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 w-full overflow-visible"
-          style={{ maxWidth: '80rem', margin: '0 auto', width: '100%', overflow: 'visible' }}
+          style={{
+            maxWidth: '80rem',
+            margin: '0 auto',
+            width: '100%',
+            height: 'auto',
+            maxHeight: 'none',
+            overflow: 'visible',
+            visibility: 'visible',
+            opacity: 1,
+          }}
         >
           <nav
             className="flex lg:flex flex-1 w-full overflow-visible flex-wrap items-center justify-between gap-1 sm:gap-1.5 py-2 text-xs sm:text-[13px] font-semibold"
             style={{
               display: 'flex',
+              flexDirection: 'row',
               flexWrap: 'wrap',
               alignItems: 'center',
               justifyContent: 'space-between',
               width: '100%',
+              height: 'auto',
+              maxHeight: 'none',
               overflow: 'visible',
               visibility: 'visible',
               opacity: 1,
@@ -168,6 +189,8 @@ export default function Nav() {
                   href={link.href}
                   style={{
                     display: 'inline-block',
+                    height: 'auto',
+                    maxHeight: 'none',
                     visibility: 'visible',
                     opacity: 1,
                     textDecoration: 'none',

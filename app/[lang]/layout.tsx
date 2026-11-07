@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import '../globals.css';
-import Nav from '../components/Nav';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { getSiteSettings } from '@/lib/cms/cms-service';
 
@@ -98,7 +98,7 @@ export default async function LangLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans text-gray-900 bg-slate-50">
-        <Nav />
+        <Header />
         <div className="flex-1">{children}</div>
         <Footer />
       </body>
