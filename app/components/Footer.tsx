@@ -28,8 +28,8 @@ export default function Footer() {
               <div>
                 <span className="font-extrabold text-sm sm:text-base text-white block leading-tight">
                   {lang === 'ne'
-                    ? 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं'
-                    : 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu'}
+                    ? 'मादी (संखुवासभा) सरोकार समाज'
+                    : 'Madi (Sankhuwasabha) Sarokar Samaj'}
                 </span>
                 <span className="text-[10px] text-orange-300 uppercase tracking-wider font-semibold block">
                   {lang === 'ne' ? 'काठमाण्डौं, नेपाल' : 'Kathmandu, Nepal'}
@@ -39,28 +39,9 @@ export default function Footer() {
 
             <p className="text-slate-400 text-xs leading-relaxed">
               {lang === 'ne'
-                ? '“मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान।” जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता भई सञ्चालित गैरनाफामूलक सामाजिक संस्था।'
-                : '“From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration.” A non-profit community social organization.'}
+                ? 'काठमाण्डौंमा बसोबास गर्ने मादीवासीहरूको एकता, आपसी सद्भाव र सामाजिक सेवामा समर्पित गैरनाफामूलक सामाजिक संस्था।'
+                : 'A non-profit community social organization dedicated to the solidarity, mutual welfare, and social service of Madi residents in Kathmandu.'}
             </p>
-
-            <div className="text-[11px] text-slate-300 space-y-1.5 bg-white/5 p-3 rounded-xl border border-white/10">
-              <div className="flex items-center gap-1.5 text-emerald-400 font-bold">
-                <span>🏛️</span>
-                <span>
-                  {lang === 'ne'
-                    ? 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता प्रमाणित'
-                    : 'DAO Kathmandu Registered & Verified'}
-                </span>
-              </div>
-              <p className="text-slate-400">
-                <span className="text-white font-semibold">{lang === 'ne' ? 'दर्ता मिति:' : 'Registered:'}</span>{' '}
-                २०८२/०४/२१ BS (दर्ता नं. १६)
-              </p>
-              <p className="text-slate-400">
-                <span className="text-white font-semibold">{lang === 'ne' ? 'कार्यालय:' : 'Office:'}</span>{' '}
-                {lang === 'ne' ? 'काठमाण्डौं-४, सुकेधारा' : 'Kathmandu-4, Sukedhara'}
-              </p>
-            </div>
           </div>
 
           {/* Quick Navigation */}
@@ -170,18 +151,6 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Community Network Note */}
-            <div className="pt-2">
-              <span className="text-[11px] font-semibold text-orange-300 block mb-1">
-                {lang === 'ne' ? 'सामुदायिक एकता:' : 'Community Network:'}
-              </span>
-              <p className="text-slate-400 text-[11px] leading-relaxed">
-                {lang === 'ne'
-                  ? 'काठमाण्डौं उपत्यकामा रहनुभएका सम्पूर्ण मादीवासीहरूको सामाजिक एकता र सहकार्यको साझा मञ्च।'
-                  : 'A common platform for mutual support and solidarity among Madi diaspora in Kathmandu.'}
-              </p>
-            </div>
-
             <div className="pt-2">
               <Link
                 href={`/${lang}/admin/login`}
@@ -196,12 +165,12 @@ export default function Footer() {
         {/* Bottom Copyright */}
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <p>
-            © २०८२ मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं। {lang === 'ne' ? 'सर्वाधिकार सुरक्षित।' : 'All rights reserved.'}
+            © २०८२ मादी (संखुवासभा) सरोकार समाज। {lang === 'ne' ? 'सर्वाधिकार सुरक्षित।' : 'All rights reserved.'}
           </p>
           <p className="text-slate-500">
             {lang === 'ne'
-              ? 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता भई सञ्चालित गैरनाफामूलक सामाजिक संस्था'
-              : 'Registered Non-Profit Community Organization | DAO Kathmandu Approved'}
+              ? 'गैरनाफामूलक सामाजिक संस्था'
+              : 'Non-Profit Community Organization'}
           </p>
         </div>
       </div>

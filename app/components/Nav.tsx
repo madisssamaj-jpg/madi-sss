@@ -52,10 +52,10 @@ export default function Nav() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-4">
           <div className="flex items-center gap-2">
             <span className="text-[#FB6C01] font-bold">●</span>
-            <span className="font-medium">
+            <span className="font-medium text-slate-200">
               {currentLang === 'ne'
-                ? '“मादीदेखि काठमाण्डौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो”'
-                : '“From Madi to Kathmandu — A shared platform for unity, solidarity, and community welfare”'}
+                ? 'सामाजिक सेवा तथा सामुदायिक सहकार्य'
+                : 'Community Service & Welfare'}
             </span>
           </div>
           <div className="flex items-center gap-3 text-[11px]">
@@ -100,13 +100,7 @@ export default function Nav() {
                   ? 'मादी (संखुवासभा) सरोकार समाज'
                   : 'Madi (Sankhuwasabha) Sarokar Samaj'}
               </span>
-              {/* Main Heading Text: Logo छेउमा ठूलो, bold र attractive */}
-              <h2 className="font-bold text-xs sm:text-sm lg:text-[15px] text-amber-300 leading-snug tracking-normal mt-0.5 break-words">
-                {currentLang === 'ne'
-                  ? 'मादीदेखि काठमाण्डौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो'
-                  : 'From Madi to Kathmandu — A shared platform for unity, solidarity, and community welfare'}
-              </h2>
-              <span className="text-[10px] sm:text-[11px] text-orange-200 uppercase tracking-wider font-semibold block leading-tight mt-0.5">
+              <span className="text-[11px] sm:text-xs text-orange-200 uppercase tracking-wider font-semibold block leading-tight mt-1">
                 {currentLang === 'ne' ? 'काठमाण्डौं, नेपाल' : 'Kathmandu, Nepal'}
               </span>
             </div>

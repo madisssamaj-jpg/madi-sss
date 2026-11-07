@@ -86,26 +86,6 @@ export default async function HomePage({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,108,1,0.15),transparent_50%)] pointer-events-none z-[1]" />
 
         <div className="relative z-10 max-w-5xl mx-auto text-center space-y-6 w-full">
-          {/* Two Verified Milestones Only */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            <div className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide text-orange-200">
-              <span>🌱</span>
-              <span>
-                {lang === 'ne'
-                  ? 'वि.सं. २०७६: ‘मादी सरोकार केन्द्र’ का रूपमा स्थापना'
-                  : '2076 BS: Established as Madi Sarokar Kendra'}
-              </span>
-            </div>
-            <div className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide text-blue-200">
-              <span>🏛️</span>
-              <span>
-                {lang === 'ne'
-                  ? 'वि.सं. २०८२: ‘मादी (संखुवासभा) सरोकार समाज’ का रूपमा जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा विधिवत दर्ता (दर्ता नं. १६)'
-                  : '2082 BS: Formally registered as Madi (Sankhuwasabha) Sarokar Samaj, District Administration Office, Kathmandu (Reg. No. 16)'}
-              </span>
-            </div>
-          </div>
-
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
             {lang === 'ne' ? (
               <>
@@ -124,10 +104,18 @@ export default async function HomePage({
             )}
           </h1>
 
-          <p className="text-base sm:text-xl text-blue-100 max-w-3xl mx-auto font-normal leading-relaxed">
+          {/* नारा (Hero मा मात्र प्रमुख रूपमा) */}
+          <p className="text-lg sm:text-2xl text-amber-300 font-bold max-w-3xl mx-auto leading-relaxed">
             {lang === 'ne'
-              ? (hero?.subheadingNe || 'मादीदेखि काठमाण्डौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो')
-              : (hero?.subheadingEn || 'From Madi to Kathmandu — A shared platform for unity, solidarity, and community welfare')}
+              ? (hero?.subheadingNe || '“मादीदेखि काठमाण्डौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो”')
+              : (hero?.subheadingEn || '“From Madi to Kathmandu — A shared platform for unity, solidarity, and community welfare”')}
+          </p>
+
+          {/* Short Intro */}
+          <p className="text-sm sm:text-base text-blue-100 max-w-2xl mx-auto font-normal leading-relaxed">
+            {lang === 'ne'
+              ? 'काठमाण्डौं उपत्यकामा रहनुभएका सम्पूर्ण मादीवासीहरूको सामाजिक एकता, सद्भाव र सेवाको साझा मञ्च।'
+              : 'A shared platform for unity, solidarity, and community welfare for people of Madi residing in Kathmandu.'}
           </p>
 
           {/* Action Buttons: Membership and Feedback only */}

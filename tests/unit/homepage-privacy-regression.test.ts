@@ -51,10 +51,10 @@ describe('Homepage Privacy & Content Governance Regression Suite', () => {
       'Homepage must not calculate unverified year duration "6+"'
     );
 
-    // 4. Must use verified founding phrasing (2076 BS founding & 2082 BS DAO registration)
+    // 4. Must use verified founding phrasing (2076 BS founding)
     assert.ok(
-      homePageSource.includes('वि.सं. २०७६: ‘मादी सरोकार केन्द्र’ का रूपमा स्थापना'),
-      'Homepage must present verified milestone: "वि.सं. २०७६: ‘मादी सरोकार केन्द्र’ का रूपमा स्थापना"'
+      homePageSource.includes('‘मादी सरोकार केन्द्र’ का रूपमा स्थापना'),
+      'Homepage must present verified milestone: "‘मादी सरोकार केन्द्र’ का रूपमा स्थापना"'
     );
   });
 
@@ -96,7 +96,15 @@ describe('Homepage Privacy & Content Governance Regression Suite', () => {
         false,
         `${path.basename(filePath)} must NOT contain incorrect date 2082/06/29`
       );
-      // Verify correct date is present
+    }
+
+    // Verify correct verified date is present in statutory canonical pages (About & Reports)
+    const statutoryPages = [
+      path.join(rootDir, 'app', '[lang]', 'about', 'page.tsx'),
+      path.join(rootDir, 'app', '[lang]', 'reports', 'page.tsx'),
+    ];
+    for (const filePath of statutoryPages) {
+      const content = fs.readFileSync(filePath, 'utf-8');
       assert.ok(
         content.includes('२०८२/०४/२१') || content.includes('2082/04/21'),
         `${path.basename(filePath)} must contain verified date २०८२/०४/२१`
@@ -208,14 +216,19 @@ describe('Homepage Privacy & Content Governance Regression Suite', () => {
     const linkMatches = actionsMatch[1].match(/<Link\s+/g);
     assert.strictEqual(linkMatches?.length, 2, 'Hero must contain exactly two action buttons');
 
-    // 4. Milestone 1 (2076 BS) and Milestone 2 (2082 BS DAO) must be present in hero
+    // 4. Deduplicated Hero content: Slogan, Short Intro, and no duplicate registration badge
     assert.ok(
-      heroSection.includes('वि.सं. २०७६: ‘मादी सरोकार केन्द्र’ का रूपमा स्थापना'),
-      'Hero must contain Milestone 1 (2076 BS)'
+      heroSection.includes('मादीदेखि काठमाण्डौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो'),
+      'Hero must contain the official slogan'
     );
     assert.ok(
-      heroSection.includes('वि.सं. २०८२: ‘मादी (संखुवासभा) सरोकार समाज’ का रूपमा जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा विधिवत दर्ता'),
-      'Hero must contain Milestone 2 (2082 BS DAO Registration)'
+      heroSection.includes('काठमाण्डौं उपत्यकामा रहनुभएका सम्पूर्ण मादीवासीहरूको सामाजिक एकता'),
+      'Hero must contain the short introductory statement'
+    );
+    assert.strictEqual(
+      heroSection.includes('दर्ता नं. १६') || heroSection.includes('दर्ता मिति'),
+      false,
+      'Hero must NOT duplicate statutory registration details (reserved for About page)'
     );
   });
 

@@ -35,8 +35,8 @@ export default async function AboutPage({
           </h1>
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
             {lang === 'ne'
-              ? `“${settings.sloganNe}” — जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता भई सञ्चालित गैरनाफामूलक सामाजिक संस्था।`
-              : `“${settings.sloganEn}” — A registered non-profit community social organization.`}
+              ? 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता भई सञ्चालित गैरनाफामूलक सामाजिक संस्था।'
+              : 'A registered non-profit community social organization.'}
           </p>
         </div>
 
