@@ -18,46 +18,56 @@ export default function Nav() {
 
   const currentLang = pathname?.split('/')[1] || 'ne';
   const otherLang = currentLang === 'ne' ? 'en' : 'ne';
-  const t = currentLang === 'ne' ? ne : en;
+  const t: Record<string, string> = currentLang === 'ne' ? ne : en;
 
   const navLinks = [
-    { href: `/${currentLang}`, label: t.home },
-    { href: `/${currentLang}/about`, label: t.aboutUs },
-    { href: `/${currentLang}/activities`, label: t.activities },
-    { href: `/${currentLang}/relief-support`, label: t.reliefSupport },
-    { href: `/${currentLang}/events`, label: t.events },
-    { href: `/${currentLang}/membership`, label: t.membership },
-    { href: `/${currentLang}/committee`, label: t.committee },
-    { href: `/${currentLang}/reports`, label: t.reports },
-    { href: `/${currentLang}/gallery`, label: t.gallery },
-    { href: `/${currentLang}/partners`, label: t.partners },
-    { href: `/${currentLang}/feedback`, label: t.feedback },
+    { href: `/${currentLang}`, label: t.home || (currentLang === 'ne' ? 'गृहपृष्ठ' : 'Home') },
+    { href: `/${currentLang}/about`, label: t.aboutUs || (currentLang === 'ne' ? 'हाम्रो बारेमा' : 'About Us') },
+    { href: `/${currentLang}/activities`, label: t.activities || (currentLang === 'ne' ? 'गतिविधि' : 'Activities') },
+    { href: `/${currentLang}/relief-support`, label: t.reliefSupport || (currentLang === 'ne' ? 'राहत कोष' : 'Relief Fund') },
+    { href: `/${currentLang}/events`, label: t.events || (currentLang === 'ne' ? 'कार्यक्रमहरू' : 'Events') },
+    { href: `/${currentLang}/committee`, label: t.committee || (currentLang === 'ne' ? 'कार्यसमिति' : 'Committee') },
+    { href: `/${currentLang}/reports`, label: t.reports || (currentLang === 'ne' ? 'प्रतिवेदनहरू' : 'Reports') },
+    { href: `/${currentLang}/gallery`, label: t.gallery || (currentLang === 'ne' ? 'ग्यालरी' : 'Gallery') },
+    { href: `/${currentLang}/partners`, label: t.partners || (currentLang === 'ne' ? 'साझेदारहरू' : 'Partners') },
+    { href: `/${currentLang}/feedback`, label: t.feedback || (currentLang === 'ne' ? 'सुझाव' : 'Feedback') },
   ];
 
   const switchLang = () => {
-    const segments = pathname.split('/');
+    const segments = pathname ? pathname.split('/') : ['', currentLang];
     segments[1] = otherLang;
     const newPath = segments.join('/') || `/${otherLang}`;
     router.push(newPath);
   };
 
+  const isLinkActive = (href: string) => {
+    if (!pathname) return false;
+    if (href === `/${currentLang}`) {
+      return pathname === `/${currentLang}` || pathname === `/${currentLang}/`;
+    }
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-[#01366E] text-white shadow-md">
-      {/* Top Banner / Slogan */}
-      <div className="bg-[#002447] text-slate-300 text-[11px] py-1 px-4 border-b border-white/10 hidden sm:block">
+    <header className="sticky top-0 z-50 bg-[#01366E]/95 backdrop-blur-md text-white shadow-md border-b border-white/10">
+      {/* 1. Top Informational Banner / Privacy Disclaimer */}
+      <div className="bg-[#002447] text-slate-300 text-[11px] py-1 px-4 border-b border-white/10 hidden md:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div>
-            {currentLang === 'ne'
-              ? '“मादीदेखि काठमाडौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”'
-              : '“From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration”'}
+          <div className="flex items-center gap-2">
+            <span className="text-[#FB6C01] font-bold">●</span>
+            <span>
+              {currentLang === 'ne'
+                ? '“मादीदेखि काठमाडौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”'
+                : '“From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration”'}
+            </span>
           </div>
-          <div className="flex items-center gap-4 text-xs">
-            <span className="flex items-center gap-1.5 text-slate-300">
+          <div className="flex items-center gap-4 text-[11px]">
+            <span className="flex items-center gap-1 text-slate-300">
               <span>📍</span>
-              <span>Kathmandu, Nepal</span>
+              <span>{currentLang === 'ne' ? 'काठमाडौं, नेपाल' : 'Kathmandu, Nepal'}</span>
             </span>
             <span className="text-white/30">•</span>
-            <span className="flex items-center gap-1.5 text-amber-200/90 text-[11px]">
+            <span className="flex items-center gap-1.5 text-amber-200/90">
               <span>✉️</span>
               <span>
                 {currentLang === 'ne'
@@ -69,39 +79,48 @@ export default function Nav() {
         </div>
       </div>
 
-      {/* Main Navbar */}
+      {/* 2. Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo & Org Name */}
-          <Link href={`/${currentLang}`} className="flex items-center gap-3">
-            <img
-              src="/media/madi-sss-logo.jpg"
-              alt="Madi SSS Logo"
-              className="w-11 h-11 rounded-full object-cover bg-white border-2 border-[#FB6C01] shadow-md shrink-0"
-            />
-            <div>
-              <span className="font-bold text-base sm:text-lg tracking-tight block leading-tight text-white">
+        <div className="flex items-center justify-between h-16 sm:h-[68px] gap-4">
+          {/* LEFT: Clickable Official Organization Logo & Title (40–56px height) */}
+          <Link
+            href={`/${currentLang}`}
+            className="flex items-center gap-3 shrink-0 group hover:opacity-95 transition"
+            aria-label={currentLang === 'ne' ? 'गृहपृष्ठमा जानुहोस्' : 'Go to Homepage'}
+          >
+            <div className="relative flex items-center justify-center">
+              <img
+                src="/media/madi-sss-logo.jpg"
+                alt="मादी (संखुवासभा) सरोकार समाज, काठमाडौं लोगो"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover bg-white border-2 border-[#FB6C01] shadow-sm shrink-0 transition-transform duration-200 group-hover:scale-105"
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="font-bold text-sm sm:text-base leading-tight text-white tracking-tight group-hover:text-amber-100 transition-colors">
                 {currentLang === 'ne'
-                  ? 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं'
-                  : 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu'}
+                  ? 'मादी (संखुवासभा) सरोकार समाज'
+                  : 'Madi (Sankhuwasabha) Sarokar Samaj'}
               </span>
-              <span className="text-[10px] text-orange-200 block uppercase tracking-wider font-semibold">
+              <span className="text-[10px] sm:text-[11px] text-orange-200 uppercase tracking-wider font-semibold block leading-tight mt-0.5">
                 {currentLang === 'ne' ? 'काठमाडौं, नेपाल' : 'Kathmandu, Nepal'}
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-1 text-sm font-medium">
+          {/* CENTER: Compact Desktop Navigation Links */}
+          <nav
+            className="hidden xl:flex items-center gap-1.5 lg:gap-2 text-xs lg:text-[13px] font-medium"
+            aria-label="Desktop Navigation"
+          >
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const active = isLinkActive(link.href);
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-2.5 py-1.5 rounded-lg transition text-xs font-semibold ${
-                    isActive
-                      ? 'bg-white/20 text-white font-bold'
+                  className={`px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap ${
+                    active
+                      ? 'bg-white/20 text-white font-bold border-b-2 border-[#FB6C01] shadow-xs'
                       : 'text-slate-100 hover:bg-white/10 hover:text-white'
                   }`}
                 >
@@ -111,62 +130,113 @@ export default function Nav() {
             })}
           </nav>
 
-          {/* Right Actions: Lang Switch + Admin Portal + Mobile Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* RIGHT: Prominent CTA Button + Lang Switch + Admin + Mobile Toggle */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Prominent CTA Button: सदस्यता आवेदन */}
             <Link
-              href={`/${currentLang}/admin/login`}
-              className="text-xs font-bold bg-[#FB6C01] hover:bg-[#e55a00] text-white px-3 py-1.5 rounded-lg transition shadow-sm whitespace-nowrap"
+              href={`/${currentLang}/membership`}
+              className="inline-flex items-center gap-1.5 bg-[#FB6C01] hover:bg-[#e55a00] active:scale-95 text-white font-bold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-xl shadow-sm hover:shadow transition-all whitespace-nowrap"
             >
-              {t.adminPortal}
+              <span className="text-sm">📝</span>
+              <span>{t.applyMembership || (currentLang === 'ne' ? 'सदस्यता आवेदन' : 'Apply for Membership')}</span>
             </Link>
 
+            {/* Language Switcher */}
             <button
               onClick={switchLang}
-              className="text-xs font-bold border border-white/30 bg-white/10 hover:bg-white/20 text-white px-2.5 py-1.5 rounded-lg transition"
-              title="Switch Language"
+              className="text-xs font-bold border border-white/25 bg-white/10 hover:bg-white/20 active:scale-95 text-white px-2.5 py-2 rounded-lg transition-all"
+              title={currentLang === 'ne' ? 'Switch to English' : 'नेपाली भाषामा हेर्नुहोस्'}
+              aria-label="Language switch"
             >
               {currentLang === 'ne' ? 'EN' : 'नेपाली'}
             </button>
 
-            {/* Mobile Menu Button */}
+            {/* Subtle Admin Link (Desktop Only) */}
+            <Link
+              href={`/${currentLang}/admin/login`}
+              className="hidden lg:inline-flex items-center text-xs font-semibold text-slate-200 hover:text-white hover:bg-white/10 px-2 py-2 rounded-lg transition-all whitespace-nowrap"
+              title={t.adminPortal}
+            >
+              {t.adminPortal}
+            </Link>
+
+            {/* Mobile Hamburger Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition"
-              aria-label="Toggle navigation menu"
+              className="xl:hidden p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 transition"
+              aria-label="मेनु खोल्नुहोस् वा बन्द गर्नुहोस्"
+              aria-expanded={mobileMenuOpen}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mobileMenuOpen ? (
+              {mobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                ) : (
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+                </svg>
+              )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* 3. Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#002855] border-t border-white/10 px-4 pt-3 pb-6 space-y-1">
-          {navLinks.map((link) => (
+        <div className="xl:hidden bg-[#002447] border-t border-white/10 px-4 pt-4 pb-6 space-y-2 animate-fadeIn shadow-2xl">
+          {/* Prominent CTA in Mobile Menu */}
+          <div className="pb-2">
             <Link
-              key={link.href}
-              href={link.href}
+              href={`/${currentLang}/membership`}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-md text-sm font-medium text-slate-100 hover:bg-white/10 hover:text-white"
+              className="flex items-center justify-center gap-2 w-full text-center text-sm font-bold bg-[#FB6C01] hover:bg-[#e55a00] text-white py-2.5 px-4 rounded-xl shadow-sm transition"
             >
-              {link.label}
+              <span>📝</span>
+              <span>{t.applyMembership || (currentLang === 'ne' ? 'सदस्यता आवेदन' : 'Apply for Membership')}</span>
             </Link>
-          ))}
-          <div className="pt-2 border-t border-white/10">
+          </div>
+
+          {/* Navigation Links Grid/List */}
+          <div className="space-y-1">
+            {navLinks.map((link) => {
+              const active = isLinkActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg text-sm font-medium transition ${
+                    active
+                      ? 'bg-white/20 text-white font-bold border-l-4 border-[#FB6C01]'
+                      : 'text-slate-200 hover:bg-white/10 hover:text-white'
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {active && <span className="text-xs text-orange-300">●</span>}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Mobile Footer Area: Admin Portal & Language Info */}
+          <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-3 text-xs">
             <Link
               href={`/${currentLang}/admin/login`}
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-center text-xs font-bold bg-[#FB6C01] text-white py-2 rounded-lg"
+              className="text-slate-300 hover:text-white font-semibold py-1.5 px-3 rounded-lg bg-white/5 hover:bg-white/10 transition"
             >
-              {t.adminPortal}
+              🔒 {t.adminPortal}
             </Link>
+
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                switchLang();
+              }}
+              className="text-amber-200 font-bold py-1.5 px-3 rounded-lg bg-white/5 hover:bg-white/10 transition"
+            >
+              🌐 {currentLang === 'ne' ? 'English Version' : 'नेपाली संस्करण'}
+            </button>
           </div>
         </div>
       )}
