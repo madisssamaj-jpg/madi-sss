@@ -8,7 +8,7 @@ const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 const anonKey =
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
-  '';
+  'sb_publishable_KeDQ012wuBMvJ0LlkQ-HTw_qMoKNgki';
 
 /**
  * Returns a privileged Supabase client for backend/admin operations using service_role key.

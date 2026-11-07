@@ -6,7 +6,7 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ypcrfeufdgh
 const supabaseAnonKey =
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
-  '';
+  'sb_publishable_KeDQ012wuBMvJ0LlkQ-HTw_qMoKNgki';
 
 export function getSupabaseBrowserClient() {
   if (!supabaseUrl) {
