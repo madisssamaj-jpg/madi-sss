@@ -59,3 +59,4 @@ export function trackDocumentDownload(documentName: string) {
     label: documentName,
   });
 }
+

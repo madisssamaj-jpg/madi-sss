@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import '../globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -12,6 +13,9 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  if (lang !== 'ne' && lang !== 'en') {
+    notFound();
+  }
   const settings = await getSiteSettings();
 
   const title = lang === 'ne' ? settings.defaultMetaTitleNe : settings.defaultMetaTitleEn;
@@ -71,6 +75,9 @@ export default async function LangLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  if (lang !== 'ne' && lang !== 'en') {
+    notFound();
+  }
   const settings = await getSiteSettings();
 
   const jsonLd = {
@@ -83,29 +90,17 @@ export default async function LangLayout({
     image: DEFAULT_OG_IMAGE,
     description: lang === 'ne' ? settings.defaultMetaDescNe : settings.defaultMetaDescEn,
     email: settings.contactEmail || 'madisssamaj@gmail.com',
-    foundingDate: '2019',
     identifier: settings.daoRegistrationNumber ? `दर्ता नं. ${settings.daoRegistrationNumber}` : 'दर्ता नं. १६',
     legalName: lang === 'ne' ? ORG_NAME_NE : ORG_NAME_EN,
     address: {
       '@type': 'PostalAddress',
       streetAddress: settings.officeAddressNe || 'काठमाण्डौं महानगरपालिका वडा नं. ४, सुकेधारा',
-      addressLocality: 'काठमाण्डौं (Kathmandu)',
-      addressRegion: 'बागमती प्रदेश (Bagmati Province)',
-      postalCode: '44600',
+      addressLocality: 'काठमाण्डौं',
+      addressRegion: 'बागमती प्रदेश',
       addressCountry: 'NP',
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '27.7314',
-      longitude: '85.3448',
-    },
-    sameAs: [
-      settings.facebookUrl || 'https://facebook.com/madisss',
-      settings.youtubeUrl || 'https://youtube.com/@madisss',
-    ].filter(Boolean),
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: settings.contactPhone || '+977-9851000000',
       email: settings.contactEmail || 'madisssamaj@gmail.com',
       contactType: 'Secretariat Desk',
       areaServed: 'NP',
