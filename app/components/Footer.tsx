@@ -169,42 +169,16 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Social Media Links */}
+            {/* Community Network Note */}
             <div className="pt-2">
-              <span className="text-[11px] font-semibold text-slate-300 block mb-2">
-                {lang === 'ne' ? 'सामाजिक सञ्जालमा जोडिनुहोस्:' : 'Connect with Us:'}
+              <span className="text-[11px] font-semibold text-orange-300 block mb-1">
+                {lang === 'ne' ? 'सामुदायिक एकता:' : 'Community Network:'}
               </span>
-              <div className="flex items-center gap-2">
-                <a
-                  href="https://facebook.com/madisss"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1877F2]/15 hover:bg-[#1877F2]/30 text-white border border-[#1877F2]/40 text-xs font-semibold shadow-xs transition group"
-                  title="Facebook Page"
-                >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="12" fill="#1877F2" />
-                    <path
-                      d="M15.117 12.875l.44-2.875h-2.757V8.136c0-.788.386-1.556 1.624-1.556H15.7V4.127A15.83 15.83 0 0013.882 4c-2.366 0-3.91 1.435-3.91 4.032V10H7.45v2.875h2.522v6.953c.505.079 1.02.122 1.545.122.524 0 1.04-.043 1.545-.122V12.875h2.055z"
-                      fill="white"
-                    />
-                  </svg>
-                  <span>Facebook</span>
-                </a>
-                <a
-                  href="https://youtube.com/@madisss"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#FF0000]/15 hover:bg-[#FF0000]/30 text-white border border-[#FF0000]/40 text-xs font-semibold shadow-xs transition group"
-                  title="YouTube Channel"
-                >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none">
-                    <rect width="24" height="24" rx="5" fill="#FF0000" />
-                    <polygon points="10,15 15,12 10,9" fill="white" />
-                  </svg>
-                  <span>YouTube</span>
-                </a>
-              </div>
+              <p className="text-slate-400 text-[11px] leading-relaxed">
+                {lang === 'ne'
+                  ? 'काठमाडौं उपत्यकामा रहनुभएका सम्पूर्ण मादीवासीहरूको सामाजिक एकता र सहकार्यको साझा मञ्च।'
+                  : 'A common platform for mutual support and solidarity among Madi diaspora in Kathmandu.'}
+              </p>
             </div>
 
             <div className="pt-2">

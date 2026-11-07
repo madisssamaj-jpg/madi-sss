@@ -68,39 +68,6 @@ export default function Nav() {
               <span>{currentLang === 'ne' ? 'काठमाडौं, नेपाल' : 'Kathmandu, Nepal'}</span>
             </span>
             <span className="text-white/30">•</span>
-            {/* Social Media Links */}
-            <div className="flex items-center gap-2">
-              <a
-                href="https://facebook.com/madisss"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-slate-300 hover:text-white transition font-medium"
-                title="Facebook Page"
-              >
-                <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="12" fill="#1877F2" />
-                  <path
-                    d="M15.117 12.875l.44-2.875h-2.757V8.136c0-.788.386-1.556 1.624-1.556H15.7V4.127A15.83 15.83 0 0013.882 4c-2.366 0-3.91 1.435-3.91 4.032V10H7.45v2.875h2.522v6.953c.505.079 1.02.122 1.545.122.524 0 1.04-.043 1.545-.122V12.875h2.055z"
-                    fill="white"
-                  />
-                </svg>
-                <span>Facebook</span>
-              </a>
-              <a
-                href="https://youtube.com/@madisss"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-slate-300 hover:text-white transition font-medium"
-                title="YouTube Channel"
-              >
-                <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none">
-                  <rect width="24" height="24" rx="5" fill="#FF0000" />
-                  <polygon points="10,15 15,12 10,9" fill="white" />
-                </svg>
-                <span>YouTube</span>
-              </a>
-            </div>
-            <span className="text-white/30">•</span>
             <span className="flex items-center gap-1.5 text-amber-200/90">
               <span>✉️</span>
               <span>
