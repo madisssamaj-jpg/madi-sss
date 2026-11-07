@@ -179,11 +179,15 @@ export default function Footer() {
                   href="https://facebook.com/madisss"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1877F2]/20 hover:bg-[#1877F2]/40 text-blue-300 border border-[#1877F2]/40 text-[11px] font-medium transition"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1877F2]/15 hover:bg-[#1877F2]/30 text-white border border-[#1877F2]/40 text-xs font-semibold shadow-xs transition group"
                   title="Facebook Page"
                 >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="12" fill="#1877F2" />
+                    <path
+                      d="M15.117 12.875l.44-2.875h-2.757V8.136c0-.788.386-1.556 1.624-1.556H15.7V4.127A15.83 15.83 0 0013.882 4c-2.366 0-3.91 1.435-3.91 4.032V10H7.45v2.875h2.522v6.953c.505.079 1.02.122 1.545.122.524 0 1.04-.043 1.545-.122V12.875h2.055z"
+                      fill="white"
+                    />
                   </svg>
                   <span>Facebook</span>
                 </a>
@@ -191,11 +195,12 @@ export default function Footer() {
                   href="https://youtube.com/@madisss"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#FF0000]/20 hover:bg-[#FF0000]/40 text-red-300 border border-[#FF0000]/40 text-[11px] font-medium transition"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#FF0000]/15 hover:bg-[#FF0000]/30 text-white border border-[#FF0000]/40 text-xs font-semibold shadow-xs transition group"
                   title="YouTube Channel"
                 >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none">
+                    <rect width="24" height="24" rx="5" fill="#FF0000" />
+                    <polygon points="10,15 15,12 10,9" fill="white" />
                   </svg>
                   <span>YouTube</span>
                 </a>
