@@ -320,7 +320,7 @@ export default async function GovernanceDashboardPage({
       {/* Return to Dashboard CTA */}
       <div className="flex justify-between items-center text-xs text-slate-500 pt-4">
         <span>
-          {lang === 'ne' ? 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं — प्रशासनिक सुशासन प्रणाली' : 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu — Admin Governance System'}
+          {lang === 'ne' ? 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं — प्रशासनिक सुशासन प्रणाली' : 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu — Admin Governance System'}
         </span>
         <Link
           href={`/${lang}/admin`}

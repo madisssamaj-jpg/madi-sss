@@ -101,7 +101,7 @@ export async function sendMembershipReceivedEmail(params: {
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
       <div style="background-color: #01366E; padding: 24px; text-align: center; color: white;">
-        <h2 style="margin: 0; font-size: 20px;">मादी (संखुवासभा) सरोकार समाज, काठमाडौं</h2>
+        <h2 style="margin: 0; font-size: 20px;">मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं</h2>
         <p style="margin: 4px 0 0 0; font-size: 13px; color: #fed7aa;">Madi Sankhuwasabha Sarokar Samaj, Kathmandu</p>
       </div>
       <div style="padding: 24px; color: #1e293b; line-height: 1.6;">
@@ -150,7 +150,7 @@ export async function sendMembershipStatusEmail(params: {
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
       <div style="background-color: #01366E; padding: 24px; text-align: center; color: white;">
-        <h2 style="margin: 0; font-size: 20px;">मादी (संखुवासभा) सरोकार समाज, काठमाडौं</h2>
+        <h2 style="margin: 0; font-size: 20px;">मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं</h2>
       </div>
       <div style="padding: 24px; color: #1e293b; line-height: 1.6;">
         <p style="font-size: 15px; font-weight: bold;">नमस्ते ${params.fullName} ज्यू,</p>
@@ -164,7 +164,7 @@ export async function sendMembershipStatusEmail(params: {
             : `<p>तपाईंको सदस्यता आवेदन हालको लागि स्वीकृत हुन सकेन। थप जानकारीका लागि संस्थाको सचिवालयमा सम्पर्क गर्नुहोला।</p>`
         }
         ${params.adminNotes ? `<div style="background-color: #f1f5f9; padding: 12px; border-radius: 6px; font-size: 13px; margin: 12px 0;"><strong>सचिवालय टिप्पणी:</strong> ${params.adminNotes}</div>` : ''}
-        <p style="font-size: 12px; color: #64748b; margin-top: 20px;">मादी (संखुवासभा) सरोकार समाज, काठमाडौं सचिवालय</p>
+        <p style="font-size: 12px; color: #64748b; margin-top: 20px;">मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं सचिवालय</p>
       </div>
     </div>
   `;
@@ -190,7 +190,7 @@ export async function sendFeedbackReceivedEmail(params: {
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
       <div style="background-color: #01366E; padding: 20px; text-align: center; color: white;">
-        <h3 style="margin: 0;">मादी (संखुवासभा) सरोकार समाज, काठमाडौं</h3>
+        <h3 style="margin: 0;">मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं</h3>
       </div>
       <div style="padding: 24px; color: #1e293b; line-height: 1.6;">
         <p>नमस्ते ${params.fullName} ज्यू,</p>

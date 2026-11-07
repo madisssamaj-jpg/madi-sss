@@ -133,7 +133,7 @@ export default function MembershipPage() {
           </h1>
           <p className="text-gray-600 text-sm sm:text-base">
             {lang === 'ne'
-              ? 'काठमाडौं उपत्यकामा बसोबास गर्ने सम्पूर्ण मादीवासीहरूलाई संस्थामा आबद्ध हुन हार्दिक आह्वान गर्दछौं।'
+              ? 'काठमाण्डौं उपत्यकामा बसोबास गर्ने सम्पूर्ण मादीवासीहरूलाई संस्थामा आबद्ध हुन हार्दिक आह्वान गर्दछौं।'
               : 'Uniting all residents of Madi living in Kathmandu Valley into a vibrant, compassionate community network.'}
           </p>
         </div>
@@ -326,14 +326,14 @@ export default function MembershipPage() {
 
               <div>
                 <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                  {lang === 'ne' ? 'हालको बसोबास ठेगाना (काठमाडौं उपत्यका)' : 'Current Kathmandu Address'} *
+                  {lang === 'ne' ? 'हालको बसोबास ठेगाना (काठमाण्डौं उपत्यका)' : 'Current Kathmandu Address'} *
                 </label>
                 <input
                   type="text"
                   required
                   value={form.currentAddressNe}
                   onChange={(e) => setForm({ ...form, currentAddressNe: e.target.value })}
-                  placeholder="सुकेधारा, काठमाडौं"
+                  placeholder="सुकेधारा, काठमाण्डौं"
                   className="w-full border border-gray-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-[#FB6C01] focus:outline-none"
                 />
               </div>
@@ -392,7 +392,7 @@ export default function MembershipPage() {
                 required
                 value={form.reasonForJoiningNe}
                 onChange={(e) => setForm({ ...form, reasonForJoiningNe: e.target.value })}
-                placeholder="जन्मथलोको सामाजिक सेवा तथा काठमाडौंमा रहेका मादीवासीहरूबीच सहकार्य प्रवर्द्धन गर्न..."
+                placeholder="जन्मथलोको सामाजिक सेवा तथा काठमाण्डौंमा रहेका मादीवासीहरूबीच सहकार्य प्रवर्द्धन गर्न..."
                 className="w-full border border-gray-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-[#FB6C01] focus:outline-none"
               ></textarea>
             </div>

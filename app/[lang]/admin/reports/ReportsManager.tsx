@@ -54,7 +54,7 @@ export function ReportsManager({
 
   const handleOpenNewCertificate = () => {
     setEditingItem({
-      titleNe: 'जिल्ला प्रशासन कार्यालय, काठमाडौं दर्ता प्रमाणपत्र',
+      titleNe: 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं दर्ता प्रमाणपत्र',
       titleEn: 'District Administration Office, Kathmandu Registration Certificate',
       fiscalYear: '२०८२ (2025)',
       category: 'REGISTRATION_CERTIFICATE',
@@ -64,18 +64,18 @@ export function ReportsManager({
       fileSizeMb: '0.22 MB',
       isPublic: false, // Invariant: Default to Internal Only!
       status: 'PUBLISHED',
-      issuingAuthorityNe: 'जिल्ला प्रशासन कार्यालय, काठमाडौं',
+      issuingAuthorityNe: 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं',
       issuingAuthorityEn: 'District Administration Office, Kathmandu',
       registrationDateNe: '२०८२/०४/२१',
       registrationDateEn: '2082/04/21 BS',
       registrationNumber: '१६',
       decisionDateNe: '२०८२/०४/२१',
-      registeredOrgNameNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं',
+      registeredOrgNameNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं',
       registeredOrgNameEn: 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu',
       verificationStatus: 'VERIFIED',
       publishRegistrationNumber: true,
       publishRedactedCertificate: false,
-      adminNotes: 'जिल्ला प्रशासन कार्यालय, काठमाडौं बबरमहलबाट जारी आधिकारिक दर्ता प्रमाणपत्र (दर्ता नं. १६, निर्णय मिति २०८२/०४/२१)। सक्कल कागजात आन्तरिक अभिलेखमा सुरक्षित।',
+      adminNotes: 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं बबरमहलबाट जारी आधिकारिक दर्ता प्रमाणपत्र (दर्ता नं. १६, निर्णय मिति २०८२/०४/२१)। सक्कल कागजात आन्तरिक अभिलेखमा सुरक्षित।',
       noPrivateDataConfirmed: true,
       isOriginalApprovedDocument: true,
     });
@@ -84,7 +84,7 @@ export function ReportsManager({
 
   const handleOpenNewConstitution = () => {
     setEditingItem({
-      titleNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाडौंको विधान',
+      titleNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौंको विधान',
       titleEn: 'Constitution of Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu',
       fiscalYear: '२०८२ (2025)',
       category: 'CONSTITUTION',
@@ -93,7 +93,7 @@ export function ReportsManager({
       publishedDate: '२०८२-०४-२१',
       fileUrl: '',
       fileSizeMb: '',
-      descriptionNe: 'जिल्ला प्रशासन कार्यालय, काठमाडौंमा मिति २०८२/०४/२१ मा दर्ता तथा प्रमाणित आधिकारिक मूल विधान',
+      descriptionNe: 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा मिति २०८२/०४/२१ मा दर्ता तथा प्रमाणित आधिकारिक मूल विधान',
       descriptionEn: 'Official verified and registered Constitution approved by District Administration Office, Kathmandu on 2082/04/21',
       status: 'DRAFT',
       isPublic: false,
@@ -423,7 +423,7 @@ export function ReportsManager({
                   required
                   value={editingItem.titleNe || ''}
                   onChange={(e) => setEditingItem({ ...editingItem, titleNe: e.target.value })}
-                  placeholder="उदा: जिल्ला प्रशासन कार्यालय, काठमाडौं दर्ता प्रमाणपत्र"
+                  placeholder="उदा: जिल्ला प्रशासन कार्यालय, काठमाण्डौं दर्ता प्रमाणपत्र"
                   className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-1 focus:ring-[#01366E]"
                 />
               </div>
@@ -535,7 +535,7 @@ export function ReportsManager({
                       required
                       value={editingItem.registeredOrgNameNe || ''}
                       onChange={(e) => setEditingItem({ ...editingItem, registeredOrgNameNe: e.target.value })}
-                      placeholder="उदा: मादी (संखुवासभा) सरोकार समाज, काठमाडौं"
+                      placeholder="उदा: मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं"
                       className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-1 focus:ring-[#01366E]"
                     />
                   </div>
@@ -564,7 +564,7 @@ export function ReportsManager({
                       required
                       value={editingItem.issuingAuthorityNe || ''}
                       onChange={(e) => setEditingItem({ ...editingItem, issuingAuthorityNe: e.target.value })}
-                      placeholder="उदा: जिल्ला प्रशासन कार्यालय, काठमाडौं"
+                      placeholder="उदा: जिल्ला प्रशासन कार्यालय, काठमाण्डौं"
                       className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-1 focus:ring-[#01366E]"
                     />
                   </div>
@@ -654,7 +654,7 @@ export function ReportsManager({
                     rows={2}
                     value={editingItem.adminNotes || ''}
                     onChange={(e) => setEditingItem({ ...editingItem, adminNotes: e.target.value })}
-                    placeholder="उदा: जिल्ला प्रशासन कार्यालय, काठमाडौं बबरमहलबाट जारी आधिकारिक दर्ता प्रमाणपत्र (दर्ता नं. १६)..."
+                    placeholder="उदा: जिल्ला प्रशासन कार्यालय, काठमाण्डौं बबरमहलबाट जारी आधिकारिक दर्ता प्रमाणपत्र (दर्ता नं. १६)..."
                     className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-1 focus:ring-[#01366E]"
                   />
                 </div>
@@ -780,7 +780,7 @@ export function ReportsManager({
                     rows={2}
                     value={editingItem.descriptionNe || ''}
                     onChange={(e) => setEditingItem({ ...editingItem, descriptionNe: e.target.value })}
-                    placeholder="उदा: जिल्ला प्रशासन कार्यालय, काठमाडौंमा मिति २०८२/०४/२१ मा दर्ता तथा प्रमाणित आधिकारिक विधान"
+                    placeholder="उदा: जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा मिति २०८२/०४/२१ मा दर्ता तथा प्रमाणित आधिकारिक विधान"
                     className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-1 focus:ring-[#01366E]"
                   />
                 </div>
@@ -890,10 +890,10 @@ export function ReportsManager({
             </div>
             <div>
               <h2 className="text-xl sm:text-2xl font-black text-white">
-                जिल्ला प्रशासन कार्यालय, काठमाडौं दर्ता प्रमाणपत्र
+                जिल्ला प्रशासन कार्यालय, काठमाण्डौं दर्ता प्रमाणपत्र
               </h2>
               <p className="text-xs sm:text-sm text-blue-100 mt-1 max-w-3xl">
-                मादी (संखुवासभा) सरोकार समाज, काठमाडौंको आधिकारिक वैधानिक दर्ता प्रमाणपत्र। सक्कल स्क्यान प्रति आन्तरिक अभिलेखमा पूर्ण सुरक्षित छ र कुनै व्यक्तिगत हस्ताक्षर वा फोन नम्बर सार्वजनिक हुँदैन।
+                मादी (संखुवासभा) सरोकार समाज, काठमाण्डौंको आधिकारिक वैधानिक दर्ता प्रमाणपत्र। सक्कल स्क्यान प्रति आन्तरिक अभिलेखमा पूर्ण सुरक्षित छ र कुनै व्यक्तिगत हस्ताक्षर वा फोन नम्बर सार्वजनिक हुँदैन।
               </p>
             </div>
           </div>
@@ -906,7 +906,7 @@ export function ReportsManager({
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="text-xs font-extrabold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full flex items-center gap-1.5">
                       <span>🏛️</span>
-                      <span>जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता प्रमाणित</span>
+                      <span>जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता प्रमाणित</span>
                     </span>
                     <span className="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full">
                       दर्ता नं. {verifiedCertificate.registrationNumber || '१६'}
@@ -916,10 +916,10 @@ export function ReportsManager({
                     </span>
                   </div>
                   <h3 className="text-xl font-extrabold text-[#01366E] mt-3">
-                    {verifiedCertificate.registeredOrgNameNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं'}
+                    {verifiedCertificate.registeredOrgNameNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं'}
                   </h3>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    {verifiedCertificate.issuingAuthorityNe || 'जिल्ला प्रशासन कार्यालय, काठमाडौं'} • दर्ता मिति: {verifiedCertificate.registrationDateNe || '२०८२/०४/२१'}
+                    {verifiedCertificate.issuingAuthorityNe || 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं'} • दर्ता मिति: {verifiedCertificate.registrationDateNe || '२०८२/०४/२१'}
                   </p>
                 </div>
 

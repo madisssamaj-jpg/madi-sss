@@ -21,20 +21,20 @@ INSERT INTO public.organization_profile (
     metadata
 ) VALUES (
     'primary_profile',
-    'मादी (संखुवासभा) सरोकार समाज, काठमाडौं',
+    'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं',
     'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu',
-    'मादीदेखि काठमाडौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान',
+    'मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान',
     'From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration',
-    'जिल्ला प्रशासन कार्यालय, काठमाडौं',
+    'जिल्ला प्रशासन कार्यालय, काठमाण्डौं',
     '१६',
     '२०८२/०४/२१',
-    'काठमाडौं महानगरपालिका वडा नं. ४, सुकेधारा, काठमाडौं',
+    'काठमाण्डौं महानगरपालिका वडा नं. ४, सुकेधारा, काठमाण्डौं',
     'Ward No. 4, Sukedhara, Kathmandu, Nepal',
     '/media/madi-sss-logo.jpg',
     '२०७६',
     jsonb_build_object(
-        'original_name_ne', 'मादी सरोकार केन्द्र, काठमाडौं',
-        'registration_history', 'वि.सं. २०७६ मा स्थापित भई वि.सं. २०८२ साउन २१ मा जि.प्र.का. काठमाडौंमा दर्ता प्रमाणित।'
+        'original_name_ne', 'मादी सरोकार केन्द्र, काठमाण्डौं',
+        'registration_history', 'वि.सं. २०७६ मा स्थापित भई वि.सं. २०८२ साउन २१ मा जि.प्र.का. काठमाण्डौंमा दर्ता प्रमाणित।'
     )
 )
 ON CONFLICT (key) DO UPDATE SET
@@ -65,15 +65,15 @@ INSERT INTO public.events_programs (
     'मादी बृहत् वार्षिक भेला तथा शुभकामना आदानप्रदान कार्यक्रम',
     'Madi Grand Annual Gathering & Greetings Exchange',
     '२०८२-०१-१५ १०:००',
-    'सुकेधारा पार्टी प्यालेस, काठमाडौं',
+    'सुकेधारा पार्टी प्यालेस, काठमाण्डौं',
     'Sukedhara Party Palace, Kathmandu',
     'वार्षिक सामाजिक समीक्षा, नयाँ कार्ययोजना र नगरवासी सद्भाव',
     'Annual social review, future roadmap, and community solidarity',
     '/ne/membership',
-    'मादी (संखुवासभा) सरोकार समाज, काठमाडौं',
+    'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं',
     'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu',
     '/media/incoming/Chauki.jpg',
-    'काठमाडौं उपत्यकामा बसोबास गर्नुहुने सम्पूर्ण मादी नगरवासी दाजुभाइ तथा दिदीबहिनीहरूलाई हार्दिक निमन्त्रणा गरिन्छ।',
+    'काठमाण्डौं उपत्यकामा बसोबास गर्नुहुने सम्पूर्ण मादी नगरवासी दाजुभाइ तथा दिदीबहिनीहरूलाई हार्दिक निमन्त्रणा गरिन्छ।',
     'Cordially inviting all residents of Madi Municipality residing across Kathmandu Valley.',
     'UPCOMING'
 ),
@@ -82,7 +82,7 @@ INSERT INTO public.events_programs (
     'विपद् व्यवस्थापन तथा स्थानीय पूर्वाधार विकास अन्तरक्रिया',
     'Disaster Preparedness & Local Infrastructure Dialogue',
     '२०८१-११-२० १३:००',
-    'केन्द्रीय कार्यालय, सुकेधारा, काठमाडौं',
+    'केन्द्रीय कार्यालय, सुकेधारा, काठमाण्डौं',
     'Central Office, Sukedhara, Kathmandu',
     'मनसुनजन्य विपद् पूर्वतयारी तथा स्थानीय विद्यालय सहयोग समन्वय',
     'Monsoon disaster preparedness and local school infrastructure coordination',
@@ -90,7 +90,7 @@ INSERT INTO public.events_programs (
     'मादी सरोकार समाज',
     'Madi Sarokar Samaj',
     '/media/incoming/Madi.jpg',
-    'मादी नगरपालिका र काठमाडौंस्थित नगरवासी समाजबीच स्थानीय विकास र आकस्मिक राहतमा प्रभावकारी समन्वय गर्ने उद्देश्यले सम्पन्न अन्तरक्रिया।',
+    'मादी नगरपालिका र काठमाण्डौंस्थित नगरवासी समाजबीच स्थानीय विकास र आकस्मिक राहतमा प्रभावकारी समन्वय गर्ने उद्देश्यले सम्पन्न अन्तरक्रिया।',
     'Interactive session focused on effective coordination for local development and emergency relief.',
     'COMPLETED'
 )
@@ -207,11 +207,11 @@ INSERT INTO public.membership_applications (
     'Ram Bahadur Dahal',
     'ORDINARY',
     'मादी नगरपालिका वडा नं. २, संखुवासभा',
-    'काठमाडौं महानगरपालिका-४, सुकेधारा',
+    'काठमाण्डौं महानगरपालिका-४, सुकेधारा',
     '9841234567',
     'ram.dahal@example.com',
     'शिक्षण तथा समाजसेवा',
-    'काठमाडौंमा रहेका मादीवासीहरूको एकता र आपसी सहयोगलाई प्रभावकारी बनाउन।',
+    'काठमाण्डौंमा रहेका मादीवासीहरूको एकता र आपसी सहयोगलाई प्रभावकारी बनाउन।',
     true,
     'PENDING'
 ),
@@ -220,7 +220,7 @@ INSERT INTO public.membership_applications (
     'Sunita Shrestha',
     'ORDINARY',
     'मादी नगरपालिका वडा नं. ५, संखुवासभा',
-    'चाबहिल, काठमाडौं',
+    'चाबहिल, काठमाण्डौं',
     '9851098765',
     'sunita.shrestha@example.com',
     'स्वास्थ्य सेवा / नर्सिङ',
@@ -245,16 +245,16 @@ INSERT INTO public.notices_announcements (
     'संस्थाको सदस्यता नवीकरण तथा नयाँ आवेदन फारम खुला सम्बन्धी सूचना',
     'Notice Regarding Membership Renewal & New Online Application',
     '२०८२-०१-१०',
-    'काठमाडौं उपत्यकामा बसोबास गर्नुहुने सम्पूर्ण मादी नगरवासीहरूलाई अनलाइन पोर्टल वा केन्द्रीय कार्यालयमार्फत सदस्यता फारम भर्न हार्दिक आह्वान गरिन्छ।',
+    'काठमाण्डौं उपत्यकामा बसोबास गर्नुहुने सम्पूर्ण मादी नगरवासीहरूलाई अनलाइन पोर्टल वा केन्द्रीय कार्यालयमार्फत सदस्यता फारम भर्न हार्दिक आह्वान गरिन्छ।',
     'All residents of Madi residing across Kathmandu Valley are encouraged to complete the membership application form.',
     true
 ),
 (
     'c2000000-0000-0000-0000-000000000002',
-    'जिल्ला प्रशासन कार्यालय, काठमाडौंमा संस्था विधिवत दर्ता भएको सहर्ष जानकारी',
+    'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा संस्था विधिवत दर्ता भएको सहर्ष जानकारी',
     'Notice of Statutory Registration at District Administration Office, Kathmandu',
     '२०८२-०४-२१',
-    'मादी (संखुवासभा) सरोकार समाज, काठमाडौं वि.सं. २०८२ साल साउन २१ गते जिल्ला प्रशासन कार्यालय काठमाडौंमा विधिवत दर्ता (दर्ता नं. १६) भएको सहर्ष जानकारी गराइन्छ।',
+    'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं वि.सं. २०८२ साल साउन २१ गते जिल्ला प्रशासन कार्यालय काठमाण्डौंमा विधिवत दर्ता (दर्ता नं. १६) भएको सहर्ष जानकारी गराइन्छ।',
     'Formally registered under DAO Registration No. 16 on 2082/04/21 BS.',
     false
 )
@@ -287,7 +287,7 @@ INSERT INTO public.contact_messages (
     'kamala.limbu@example.com',
     'आकस्मिक स्वास्थ्य उपचार समन्वय सोधपुछ',
     'INQUIRY',
-    'संखुवासभाबाट काठमाडौं शिक्षण अस्पतालमा बिरामी ल्याउँदा समाजबाट आवश्यक सल्लाह वा परामर्श कसरी लिन सकिन्छ?',
+    'संखुवासभाबाट काठमाण्डौं शिक्षण अस्पतालमा बिरामी ल्याउँदा समाजबाट आवश्यक सल्लाह वा परामर्श कसरी लिन सकिन्छ?',
     'NEW'
 )
 ON CONFLICT DO NOTHING;
@@ -349,7 +349,7 @@ INSERT INTO public.social_support_requests (
     '9811223344',
     'harimaya.khatri@example.com',
     4,
-    'काठमाडौं',
+    'काठमाण्डौं',
     'MEDICAL_AID',
     'आकस्मिक शल्यक्रिया तथा अस्पताल भर्नाका लागि औषधि उपचार सहयोग समन्वय अनुरोध।',
     'UNDER_REVIEW'
@@ -360,7 +360,7 @@ INSERT INTO public.social_support_requests (
     '9801998877',
     NULL,
     6,
-    'जोरपाटी, काठमाडौं',
+    'जोरपाटी, काठमाण्डौं',
     'WELFARE_GENERAL',
     'विपन्न परिवारका बालबालिकाको प्रारम्भिक पठनपाठन सामग्री सहयोग सम्बन्धी निवेदन।',
     'PENDING'

@@ -55,7 +55,7 @@ BEGIN
             published_date = '२०८२-०६-२९',
             file_size_mb = '9.9 MB',
             no_private_data_confirmed = true,
-            description_ne = 'जिल्ला प्रशासन कार्यालय, काठमाडौंमा मिति २०८२/०६/२९ मा दर्ता तथा प्रमाणित आधिकारिक विधान (Supabase Storage)',
+            description_ne = 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा मिति २०८२/०६/२९ मा दर्ता तथा प्रमाणित आधिकारिक विधान (Supabase Storage)',
             description_en = 'Official verified and registered Constitution approved by District Administration Office, Kathmandu on 2082/06/29 (Supabase Storage)'
         WHERE category = 'CONSTITUTION' AND version = '१.० (२०८२)';
     ELSE
@@ -78,7 +78,7 @@ BEGIN
             no_private_data_confirmed
         ) VALUES (
             gen_random_uuid(),
-            'मादी (संखुवासभा) सरोकार समाज, काठमाडौंको विधान',
+            'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौंको विधान',
             'Constitution of Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu',
             '२०८२ (2025)',
             'CONSTITUTION',
@@ -89,7 +89,7 @@ BEGIN
             '9.9 MB',
             true,
             'PUBLISHED',
-            'जिल्ला प्रशासन कार्यालय, काठमाडौंमा मिति २०८२/०६/२९ मा दर्ता तथा प्रमाणित आधिकारिक विधान (Supabase Storage)',
+            'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा मिति २०८२/०६/२९ मा दर्ता तथा प्रमाणित आधिकारिक विधान (Supabase Storage)',
             'Official verified and registered Constitution approved by District Administration Office, Kathmandu on 2082/06/29 (Supabase Storage)',
             true
         );

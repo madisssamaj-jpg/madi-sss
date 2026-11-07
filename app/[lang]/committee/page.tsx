@@ -32,7 +32,7 @@ export default async function CommitteePage({
           </h1>
           <p className="text-gray-600 text-sm sm:text-base">
             {lang === 'ne'
-              ? 'मादी संखुवासभा सरोकार समाज, काठमाडौंको संचालन, नीति निर्माण र सामुदायिक सेवामा समर्पित नेतृत्व टोली।'
+              ? 'मादी संखुवासभा सरोकार समाज, काठमाण्डौंको संचालन, नीति निर्माण र सामुदायिक सेवामा समर्पित नेतृत्व टोली।'
               : 'The dedicated leadership and advisors steering the social and welfare initiatives of Madi Sankhuwasabha Sarokar Samaj in Kathmandu.'}
           </p>
         </div>
@@ -48,7 +48,7 @@ export default async function CommitteePage({
             </p>
             <p className="text-[11px] text-blue-800/80">
               {lang === 'ne'
-                ? 'जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता (दर्ता नं. १६) अनुमोदित विधान र संस्थागत सुशासनका मापदण्ड अनुरूप पदाधिकारीहरूको अभिलेख सुरक्षित राखिएको छ।'
+                ? 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता (दर्ता नं. १६) अनुमोदित विधान र संस्थागत सुशासनका मापदण्ड अनुरूप पदाधिकारीहरूको अभिलेख सुरक्षित राखिएको छ।'
                 : 'Official executive committee records are maintained in compliance with the approved statutory constitution (DAO Reg. No. 16).'}
             </p>
           </div>

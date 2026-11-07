@@ -37,7 +37,7 @@ SET
   status = 'ARCHIVED',
   is_public = false,
   is_original_approved_document = false,
-  title_ne = 'मादी (संखुवासभा) सरोकार समाज, काठमाडौंको विधान (सन्दर्भ मस्यौदा)',
+  title_ne = 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौंको विधान (सन्दर्भ मस्यौदा)',
   title_en = 'Constitution of Madi (Sankhuwasabha) Sarokar Samaj (Reference Draft)',
   description_ne = '[Non-original / Reference Draft — Do Not Publish] प्रारम्भिक सन्दर्भ मस्यौदा — संस्थाको आधिकारिक छाप तथा दर्ता भएको सक्कल प्रति नभएकाले सार्वजनिक पहुँच निषेध गरिएको छ।',
   description_en = '[Non-original / Reference Draft — Do Not Publish] Internal reference draft only — Not the stamped original document. Public access restricted.',

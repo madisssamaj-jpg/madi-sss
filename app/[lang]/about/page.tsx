@@ -35,7 +35,7 @@ export default async function AboutPage({
           </h1>
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
             {lang === 'ne'
-              ? `“${settings.sloganNe}” — जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता भई सञ्चालित गैरनाफामूलक सामाजिक संस्था।`
+              ? `“${settings.sloganNe}” — जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता भई सञ्चालित गैरनाफामूलक सामाजिक संस्था।`
               : `“${settings.sloganEn}” — A registered non-profit community social organization.`}
           </p>
         </div>
@@ -55,7 +55,7 @@ export default async function AboutPage({
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                 {lang === 'ne'
                   ? (settings.aboutBackgroundP1Ne ||
-                    'संखुवासभा जिल्लाको ऐतिहासिक र प्राकृतिक रूपमा समृद्ध मादी नगरपालिका (वडा नं. १ देखि ९ सम्म) बाट विभिन्न सिलसिलामा राजधानी काठमाडौं उपत्यकामा बसोबास गरिरहेका नगरवासीहरूलाई एउटै सूत्रमा बाँध्न वि.सं. २०८२ सालमा यो संस्था विधिवत् दर्ता भएको हो।')
+                    'संखुवासभा जिल्लाको ऐतिहासिक र प्राकृतिक रूपमा समृद्ध मादी नगरपालिका (वडा नं. १ देखि ९ सम्म) बाट विभिन्न सिलसिलामा राजधानी काठमाण्डौं उपत्यकामा बसोबास गरिरहेका नगरवासीहरूलाई एउटै सूत्रमा बाँध्न वि.सं. २०८२ सालमा यो संस्था विधिवत् दर्ता भएको हो।')
                   : (settings.aboutBackgroundP1En ||
                     'Founded in 2082 BS, Madi (Sankhuwasabha) Sarokar Samaj brings together residents and diaspora hailing from all nine wards of Madi Municipality residing in Kathmandu Valley into a unified platform of mutual welfare, cultural continuity, and community solidarity.')}
               </p>
@@ -79,7 +79,7 @@ export default async function AboutPage({
                     <span>🏛️</span>
                     <span>
                       {lang === 'ne'
-                        ? 'जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता प्रमाणित'
+                        ? 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता प्रमाणित'
                         : 'DAO Kathmandu Registered & Verified'}
                     </span>
                   </span>
@@ -93,7 +93,7 @@ export default async function AboutPage({
                   </dt>
                   <dd className="font-bold text-gray-900 mt-0.5">
                     {lang === 'ne'
-                      ? (settings.registrationAuthorityNe || 'जिल्ला प्रशासन कार्यालय, काठमाडौं')
+                      ? (settings.registrationAuthorityNe || 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं')
                       : (settings.registrationAuthorityEn || 'District Administration Office, Kathmandu')}
                   </dd>
                 </div>
@@ -113,7 +113,7 @@ export default async function AboutPage({
                   </dt>
                   <dd className="font-bold text-gray-900 mt-0.5">
                     {lang === 'ne'
-                      ? (settings.centralOfficeNe || 'काठमाडौं महानगरपालिका वडा नं. ४, सुकेधारा')
+                      ? (settings.centralOfficeNe || 'काठमाण्डौं महानगरपालिका वडा नं. ४, सुकेधारा')
                       : (settings.centralOfficeEn || 'Kathmandu Ward 4, Sukedhara')}
                   </dd>
                 </div>
@@ -123,7 +123,7 @@ export default async function AboutPage({
                   </dt>
                   <dd className="font-bold text-gray-900 mt-0.5">
                     {lang === 'ne'
-                      ? (settings.jurisdictionNe || 'मादी नगरपालिका र काठमाडौं उपत्यका')
+                      ? (settings.jurisdictionNe || 'मादी नगरपालिका र काठमाण्डौं उपत्यका')
                       : (settings.jurisdictionEn || 'Madi Municipality & Kathmandu Valley')}
                   </dd>
                 </div>
@@ -269,7 +269,7 @@ export default async function AboutPage({
                   </h3>
                   <p className="text-xs text-orange-900 font-semibold mt-0.5">
                     {lang === 'ne'
-                      ? (settings.originalOrganizationNameNe || 'मादी सरोकार केन्द्र, काठमाडौं')
+                      ? (settings.originalOrganizationNameNe || 'मादी सरोकार केन्द्र, काठमाण्डौं')
                       : (settings.originalOrganizationNameEn || 'Madi Sarokar Kendra, Kathmandu')}
                   </p>
                 </div>
@@ -277,7 +277,7 @@ export default async function AboutPage({
                 <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                   {lang === 'ne'
                     ? (settings.communityStartDescriptionNe ||
-                      'मादी (संखुवासभा) सरोकार समाज, काठमाडौंको सुरुवात वि.सं. २०७६ सालमा ‘मादी सरोकार केन्द्र, काठमाडौं’ का रूपमा भएको हो। स्थापनादेखि नै मादीवासीहरूबीच सहयोग, भेटघाट, सांस्कृतिक आदानप्रदान र सामाजिक सहकार्यलाई अगाडि बढाइएको छ।')
+                      'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौंको सुरुवात वि.सं. २०७६ सालमा ‘मादी सरोकार केन्द्र, काठमाण्डौं’ का रूपमा भएको हो। स्थापनादेखि नै मादीवासीहरूबीच सहयोग, भेटघाट, सांस्कृतिक आदानप्रदान र सामाजिक सहकार्यलाई अगाडि बढाइएको छ।')
                     : (settings.communityStartDescriptionEn ||
                       'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu began in Bikram Sambat 2076 as ‘Madi Sarokar Kendra, Kathmandu’. Since its establishment, it has promoted mutual support, networking, cultural exchange, and social collaboration among Madi residents.')}
                 </p>
@@ -307,7 +307,7 @@ export default async function AboutPage({
                   </h3>
                   <p className="text-xs text-amber-900 font-semibold mt-0.5">
                     {lang === 'ne'
-                      ? (settings.currentOrganizationNameNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं')
+                      ? (settings.currentOrganizationNameNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं')
                       : (settings.currentOrganizationNameEn || 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu')}
                   </p>
                 </div>
@@ -315,7 +315,7 @@ export default async function AboutPage({
                 <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                   {lang === 'ne'
                     ? (settings.renamingHistoryNe ||
-                      'संस्थाको कार्यक्षेत्र, सदस्यता र संगठनात्मक संरचना विस्तार हुँदै जाँदा पूर्व संस्थाको नाम परिवर्तन गरी हालको ‘मादी (संखुवासभा) सरोकार समाज, काठमाडौं’ राखिएको हो। संस्थालाई विधिवत रूपमा जिल्ला प्रशासन कार्यालय, काठमाडौंमा वि.सं. २०८२ साल साउन २१ गते (२०८२/०४/२१ BS) दर्ता तथा प्रमाणीकरण गरियो।')
+                      'संस्थाको कार्यक्षेत्र, सदस्यता र संगठनात्मक संरचना विस्तार हुँदै जाँदा पूर्व संस्थाको नाम परिवर्तन गरी हालको ‘मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं’ राखिएको हो। संस्थालाई विधिवत रूपमा जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा वि.सं. २०८२ साल साउन २१ गते (२०८२/०४/२१ BS) दर्ता तथा प्रमाणीकरण गरियो।')
                     : (settings.renamingHistoryEn ||
                       'As the organization’s scope, membership, and institutional structure expanded, its former name was changed to the current name, ‘Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu’. The organization was formally registered with the District Administration Office, Kathmandu on 2082/04/21 BS.')}
                 </p>
@@ -363,7 +363,7 @@ export default async function AboutPage({
                 <span>🏛️</span>
                 <span>
                   {lang === 'ne'
-                    ? (settings.registrationAuthorityNe || 'जिल्ला प्रशासन कार्यालय, काठमाडौं')
+                    ? (settings.registrationAuthorityNe || 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं')
                     : (settings.registrationAuthorityEn || 'District Administration Office, Kathmandu')}
                 </span>
               </div>
@@ -381,14 +381,14 @@ export default async function AboutPage({
               <p>
                 {lang === 'ne'
                   ? (settings.communityStartDescriptionNe ||
-                    'मादी (संखुवासभा) सरोकार समाज, काठमाडौंको सुरुवात वि.सं. २०७६ सालमा ‘मादी सरोकार केन्द्र, काठमाडौं’ का रूपमा भएको हो। स्थापनादेखि नै मादीवासीहरूबीच सहयोग, भेटघाट, सांस्कृतिक आदानप्रदान र सामाजिक सहकार्यलाई अगाडि बढाइएको छ।')
+                    'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौंको सुरुवात वि.सं. २०७६ सालमा ‘मादी सरोकार केन्द्र, काठमाण्डौं’ का रूपमा भएको हो। स्थापनादेखि नै मादीवासीहरूबीच सहयोग, भेटघाट, सांस्कृतिक आदानप्रदान र सामाजिक सहकार्यलाई अगाडि बढाइएको छ।')
                   : (settings.communityStartDescriptionEn ||
                     'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu began in Bikram Sambat 2076 as ‘Madi Sarokar Kendra, Kathmandu’. Since its establishment, it has promoted mutual support, networking, cultural exchange, and social collaboration among Madi residents.')}
               </p>
               <p>
                 {lang === 'ne'
                   ? (settings.renamingHistoryNe ||
-                    'संस्थाको कार्यक्षेत्र, सदस्यता र संगठनात्मक संरचना विस्तार हुँदै जाँदा पूर्व संस्थाको नाम परिवर्तन गरी हालको ‘मादी (संखुवासभा) सरोकार समाज, काठमाडौं’ राखिएको हो। संस्थालाई विधिवत रूपमा जिल्ला प्रशासन कार्यालय, काठमाडौंमा वि.सं. २०८२ साल साउन २१ गते (२०८२/०४/२१ BS) दर्ता तथा प्रमाणीकरण गरियो।')
+                    'संस्थाको कार्यक्षेत्र, सदस्यता र संगठनात्मक संरचना विस्तार हुँदै जाँदा पूर्व संस्थाको नाम परिवर्तन गरी हालको ‘मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं’ राखिएको हो। संस्थालाई विधिवत रूपमा जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा वि.सं. २०८२ साल साउन २१ गते (२०८२/०४/२१ BS) दर्ता तथा प्रमाणीकरण गरियो।')
                   : (settings.renamingHistoryEn ||
                     'As the organization’s scope, membership, and institutional structure expanded, its former name was changed to the current name, ‘Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu’. The organization was formally registered with the District Administration Office, Kathmandu on 2082/04/21 BS.')}
               </p>
@@ -407,7 +407,7 @@ export default async function AboutPage({
               <p>
                 <strong>{lang === 'ne' ? 'ऐतिहासिक यथार्थता सम्बन्धी जानकारी:' : 'Historical Clarification:'}</strong>{' '}
                 {lang === 'ne'
-                  ? 'वि.सं. २०७६ मा संस्थाको सुरुवात ‘मादी सरोकार केन्द्र’ का रूपमा भएको हो। वर्तमान आधिकारिक संस्थागत नाम ‘मादी (संखुवासभा) सरोकार समाज, काठमाडौं’ भने वि.सं. २०८२ सालमा जिल्ला प्रशासन कार्यालय, काठमाडौंमा विधिवत दर्ता भएको हो। (२०७६ सालमा वर्तमान नाममा कानुनी दर्ता भएको होइन।)'
+                  ? 'वि.सं. २०७६ मा संस्थाको सुरुवात ‘मादी सरोकार केन्द्र’ का रूपमा भएको हो। वर्तमान आधिकारिक संस्थागत नाम ‘मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं’ भने वि.सं. २०८२ सालमा जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा विधिवत दर्ता भएको हो। (२०७६ सालमा वर्तमान नाममा कानुनी दर्ता भएको होइन।)'
                   : 'The initiative was originally founded in 2076 BS as ‘Madi Sarokar Kendra’. The current name, ‘Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu’, was formally and legally registered with the District Administration Office, Kathmandu in 2082 BS (it was not legally registered under the current name in 2076).'}
               </p>
             </div>
@@ -434,13 +434,13 @@ export default async function AboutPage({
                 {constitution
                   ? (lang === 'ne' ? constitution.titleNe : constitution.titleEn)
                   : (lang === 'ne'
-                    ? 'मादी (संखुवासभा) सरोकार समाज, काठमाडौंको विधान'
+                    ? 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौंको विधान'
                     : 'Constitution of Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu')}
               </h2>
 
               <p className="text-blue-100 text-sm sm:text-base leading-relaxed">
                 {lang === 'ne'
-                  ? 'जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता तथा प्रमाणित आधिकारिक मूल विधान। संस्थाको उद्देश्य, सदस्यता मापदण्ड, साधारण सभा र कार्यसमितिका वैधानिक अधिकारहरू यसै दस्तावेजमा लिपिबद्ध छन्।'
+                  ? 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता तथा प्रमाणित आधिकारिक मूल विधान। संस्थाको उद्देश्य, सदस्यता मापदण्ड, साधारण सभा र कार्यसमितिका वैधानिक अधिकारहरू यसै दस्तावेजमा लिपिबद्ध छन्।'
                   : 'Official registered and stamped Constitution approved by the District Administration Office, Kathmandu governing organizational objectives, membership rules, and executive governance.'}
               </p>
 
@@ -494,7 +494,7 @@ export default async function AboutPage({
             </h2>
             <p className="text-gray-500 text-sm">
               {lang === 'ne'
-                ? 'मादी (संखुवासभा) सरोकार समाज, काठमाडौंको विधान मस्यौदामा उल्लिखित प्रमुख उद्देश्यहरू:'
+                ? 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौंको विधान मस्यौदामा उल्लिखित प्रमुख उद्देश्यहरू:'
                 : 'Primary statutory objectives enshrined in the Constitution of Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu:'}
             </p>
           </div>

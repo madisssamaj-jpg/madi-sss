@@ -99,7 +99,7 @@ describe('Internal Activity & Financial Record-Keeping Governance Battery', () =
       titleNe: 'मादी जनस्वास्थ्य सचेतना गोष्ठी',
       titleEn: 'Madi Public Health Awareness Seminar',
       date: '२०८१-१२-०१',
-      location: 'काठमाडौं',
+      location: 'काठमाण्डौं',
       organizer: 'मादी सरोकार समाज',
       attendanceSheetRef: 'internal-docs/attendance/raw-citizen-attendance-with-signatures.pdf',
       activityReportRef: 'internal-docs/reports/medical-health-seminar-internal.pdf',
@@ -111,7 +111,7 @@ describe('Internal Activity & Financial Record-Keeping Governance Battery', () =
       approvalMinuteRef: 'minute-ec-decision-book-page-88',
       publicationStatus: 'APPROVED_PUBLIC',
       publicSafeSummary: {
-        summaryNe: 'काठमाडौंमा मादीवासीहरूका लागि स्वास्थ्य सचेतना गोष्ठी सम्पन्न।',
+        summaryNe: 'काठमाण्डौंमा मादीवासीहरूका लागि स्वास्थ्य सचेतना गोष्ठी सम्पन्न।',
         summaryEn: 'Public health awareness seminar concluded in Kathmandu.',
         publicReportUrl: '/reports/public-health-seminar-summary.pdf',
         isApprovedForPublic: true,
@@ -128,7 +128,7 @@ describe('Internal Activity & Financial Record-Keeping Governance Battery', () =
 
     // Verify public-safe fields exist
     assert.equal(target.titleNe, 'मादी जनस्वास्थ्य सचेतना गोष्ठी');
-    assert.equal(target.publicSummaryNe, 'काठमाडौंमा मादीवासीहरूका लागि स्वास्थ्य सचेतना गोष्ठी सम्पन्न।');
+    assert.equal(target.publicSummaryNe, 'काठमाण्डौंमा मादीवासीहरूका लागि स्वास्थ्य सचेतना गोष्ठी सम्पन्न।');
     assert.equal(target.publicReportUrl, '/reports/public-health-seminar-summary.pdf');
 
     // CRITICAL: Verify internal sensitive references are NEVER exposed

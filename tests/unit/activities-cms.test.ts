@@ -122,7 +122,7 @@ describe('Activity Publishing System & Governance Battery', () => {
       titleNe: 'रक्तदान कार्यक्रम',
       titleEn: 'Blood Donation Drive',
       date: '२०८२-०६-०१',
-      locationNe: 'काठमाडौं',
+      locationNe: 'काठमाण्डौं',
       locationEn: 'Kathmandu',
       category: 'COMMUNITY',
       descriptionNe: 'विवरण',

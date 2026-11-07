@@ -264,9 +264,9 @@ export function SiteSettingsManager({
                 </label>
                 <input
                   type="text"
-                  value={settings.originalOrganizationNameNe || 'मादी सरोकार केन्द्र, काठमाडौं'}
+                  value={settings.originalOrganizationNameNe || 'मादी सरोकार केन्द्र, काठमाण्डौं'}
                   onChange={(e) => setSettings({ ...settings, originalOrganizationNameNe: e.target.value })}
-                  placeholder="उदा: मादी सरोकार केन्द्र, काठमाडौं"
+                  placeholder="उदा: मादी सरोकार केन्द्र, काठमाण्डौं"
                   className="w-full text-xs p-2.5 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-1 focus:ring-[#01366E]"
                 />
               </div>
@@ -290,7 +290,7 @@ export function SiteSettingsManager({
                 </label>
                 <input
                   type="text"
-                  value={settings.currentOrganizationNameNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं'}
+                  value={settings.currentOrganizationNameNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं'}
                   onChange={(e) => setSettings({ ...settings, currentOrganizationNameNe: e.target.value })}
                   className="w-full text-xs p-2.5 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-1 focus:ring-[#01366E]"
                 />

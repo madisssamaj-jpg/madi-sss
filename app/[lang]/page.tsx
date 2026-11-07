@@ -100,7 +100,7 @@ export default async function HomePage({
               <span>🏛️</span>
               <span>
                 {lang === 'ne'
-                  ? 'वि.सं. २०८२: ‘मादी (संखुवासभा) सरोकार समाज’ का रूपमा जिल्ला प्रशासन कार्यालय, काठमाडौंमा विधिवत दर्ता (दर्ता नं. १६)'
+                  ? 'वि.सं. २०८२: ‘मादी (संखुवासभा) सरोकार समाज’ का रूपमा जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा विधिवत दर्ता (दर्ता नं. १६)'
                   : '2082 BS: Formally registered as Madi (Sankhuwasabha) Sarokar Samaj, District Administration Office, Kathmandu (Reg. No. 16)'}
               </span>
             </div>
@@ -111,7 +111,7 @@ export default async function HomePage({
               <>
                 मादी (संखुवासभा) सरोकार समाज,
                 <span className="block text-[#FB6C01] mt-1 text-2xl sm:text-4xl lg:text-5xl">
-                  काठमाडौं
+                  काठमाण्डौं
                 </span>
               </>
             ) : (
@@ -126,7 +126,7 @@ export default async function HomePage({
 
           <p className="text-base sm:text-xl text-blue-100 max-w-3xl mx-auto font-normal leading-relaxed">
             {lang === 'ne'
-              ? (hero?.subheadingNe || 'मादीदेखि काठमाडौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो')
+              ? (hero?.subheadingNe || 'मादीदेखि काठमाण्डौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो')
               : (hero?.subheadingEn || 'From Madi to Kathmandu — A shared platform for unity, solidarity, and community welfare')}
           </p>
 
@@ -184,7 +184,7 @@ export default async function HomePage({
             </div>
             <p className="text-xs sm:text-sm text-blue-900/80 mt-2 leading-relaxed">
               {lang === 'ne'
-                ? 'जिल्ला प्रशासन कार्यालय, काठमाडौं (२०८२/०४/२१ BS)'
+                ? 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं (२०८२/०४/२१ BS)'
                 : 'District Administration Office, Kathmandu (2082/04/21 BS)'}
             </p>
           </div>
@@ -445,7 +445,7 @@ export default async function HomePage({
           </h2>
           <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
             {lang === 'ne'
-              ? 'काठमाडौं उपत्यकामा रहनुभएका सम्पूर्ण मादीवासी दाजुभाइ तथा दिदीबहिनीहरूलाई समाजको सदस्यता ग्रहण गरी सामाजिक एकतामा जुट्न हार्दिक आह्वान गर्दछौं।'
+              ? 'काठमाण्डौं उपत्यकामा रहनुभएका सम्पूर्ण मादीवासी दाजुभाइ तथा दिदीबहिनीहरूलाई समाजको सदस्यता ग्रहण गरी सामाजिक एकतामा जुट्न हार्दिक आह्वान गर्दछौं।'
               : 'Join fellow residents and descendants of Madi Municipality living in Kathmandu Valley. Support community welfare, cultural roots, and mutual assistance.'}
           </p>
 

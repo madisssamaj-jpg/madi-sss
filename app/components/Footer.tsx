@@ -28,18 +28,18 @@ export default function Footer() {
               <div>
                 <span className="font-extrabold text-sm sm:text-base text-white block leading-tight">
                   {lang === 'ne'
-                    ? 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं'
+                    ? 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं'
                     : 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu'}
                 </span>
                 <span className="text-[10px] text-orange-300 uppercase tracking-wider font-semibold block">
-                  {lang === 'ne' ? 'काठमाडौं, नेपाल' : 'Kathmandu, Nepal'}
+                  {lang === 'ne' ? 'काठमाण्डौं, नेपाल' : 'Kathmandu, Nepal'}
                 </span>
               </div>
             </div>
 
             <p className="text-slate-400 text-xs leading-relaxed">
               {lang === 'ne'
-                ? '“मादीदेखि काठमाडौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान।” जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता भई सञ्चालित गैरनाफामूलक सामाजिक संस्था।'
+                ? '“मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान।” जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता भई सञ्चालित गैरनाफामूलक सामाजिक संस्था।'
                 : '“From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration.” A non-profit community social organization.'}
             </p>
 
@@ -48,7 +48,7 @@ export default function Footer() {
                 <span>🏛️</span>
                 <span>
                   {lang === 'ne'
-                    ? 'जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता प्रमाणित'
+                    ? 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता प्रमाणित'
                     : 'DAO Kathmandu Registered & Verified'}
                 </span>
               </div>
@@ -58,7 +58,7 @@ export default function Footer() {
               </p>
               <p className="text-slate-400">
                 <span className="text-white font-semibold">{lang === 'ne' ? 'कार्यालय:' : 'Office:'}</span>{' '}
-                {lang === 'ne' ? 'काठमाडौं-४, सुकेधारा' : 'Kathmandu-4, Sukedhara'}
+                {lang === 'ne' ? 'काठमाण्डौं-४, सुकेधारा' : 'Kathmandu-4, Sukedhara'}
               </p>
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function Footer() {
                 <span>📍</span>
                 <span>
                   {lang === 'ne'
-                    ? 'काठमाडौं महानगरपालिका वडा नं. ४, सुकेधारा, काठमाडौं'
+                    ? 'काठमाण्डौं महानगरपालिका वडा नं. ४, सुकेधारा, काठमाण्डौं'
                     : 'Ward No. 4, Sukedhara, Kathmandu, Nepal'}
                 </span>
               </p>
@@ -176,7 +176,7 @@ export default function Footer() {
               </span>
               <p className="text-slate-400 text-[11px] leading-relaxed">
                 {lang === 'ne'
-                  ? 'काठमाडौं उपत्यकामा रहनुभएका सम्पूर्ण मादीवासीहरूको सामाजिक एकता र सहकार्यको साझा मञ्च।'
+                  ? 'काठमाण्डौं उपत्यकामा रहनुभएका सम्पूर्ण मादीवासीहरूको सामाजिक एकता र सहकार्यको साझा मञ्च।'
                   : 'A common platform for mutual support and solidarity among Madi diaspora in Kathmandu.'}
               </p>
             </div>
@@ -195,11 +195,11 @@ export default function Footer() {
         {/* Bottom Copyright */}
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <p>
-            © २०८२ मादी (संखुवासभा) सरोकार समाज, काठमाडौं। {lang === 'ne' ? 'सर्वाधिकार सुरक्षित।' : 'All rights reserved.'}
+            © २०८२ मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं। {lang === 'ne' ? 'सर्वाधिकार सुरक्षित।' : 'All rights reserved.'}
           </p>
           <p className="text-slate-500">
             {lang === 'ne'
-              ? 'जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता भई सञ्चालित गैरनाफामूलक सामाजिक संस्था'
+              ? 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता भई सञ्चालित गैरनाफामूलक सामाजिक संस्था'
               : 'Registered Non-Profit Community Organization | DAO Kathmandu Approved'}
           </p>
         </div>

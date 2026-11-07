@@ -74,7 +74,7 @@ Establish an authentic, verified local and search engine presence for Madi (Sank
 | **Legal Name** | Madi (Sankhuwasabha) Sarokar Samaj | मादी (सङ्खुवासभा) सरोकार समाज |
 | **Short Name** | Madi Sarokar Samaj / Madi SSS | मादी सरोकार समाज |
 | **Primary Address** | Madi Municipality, Sankhuwasabha, Koshi Province, Nepal | मादी नगरपालिका, सङ्खुवासभा, कोशी प्रदेश, नेपाल |
-| **Liaison Office** | Kathmandu Valley Liaison Office, Bagmati Province, Nepal | काठमाडौँ सम्पर्क कार्यालय, बागमती प्रदेश, नेपाल |
+| **Liaison Office** | Kathmandu Valley Liaison Office, Bagmati Province, Nepal | काठमाण्डौं सम्पर्क कार्यालय, बागमती प्रदेश, नेपाल |
 | **Official Phone** | Landline / Official Secretariat VoIP *(Personal mobile strictly withheld)* | कार्यालय सम्पर्क नम्बर |
 | **Official Email** | `info@madisarokarsamaj.org.np` / `secretariat@madisarokarsamaj.org.np` | आधिकारिक इमेल |
 | **Canonical URL** | `https://madisarokarsamaj.org.np` | आधिकारिक वेबसाइट |

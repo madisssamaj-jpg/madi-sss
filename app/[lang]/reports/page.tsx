@@ -74,7 +74,7 @@ export default async function ReportsPage({
 
                 <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed">
                   {lang === 'ne'
-                    ? (latestConstitution.descriptionNe || 'जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता तथा प्रमाणित आधिकारिक मूल विधान।')
+                    ? (latestConstitution.descriptionNe || 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता तथा प्रमाणित आधिकारिक मूल विधान।')
                     : (latestConstitution.descriptionEn || 'Official statutory constitution registered and approved by District Administration Office, Kathmandu.')}
                 </p>
 
@@ -83,7 +83,7 @@ export default async function ReportsPage({
                   <span>•</span>
                   <span>⚖️ {lang === 'ne' ? 'साइज: ' : 'Size: '} {latestConstitution.fileSizeMb}</span>
                   <span>•</span>
-                  <span>🏛️ {lang === 'ne' ? 'जि.प्र.का. काठमाडौं दर्ता' : 'DAO Kathmandu Approved'}</span>
+                  <span>🏛️ {lang === 'ne' ? 'जि.प्र.का. काठमाण्डौं दर्ता' : 'DAO Kathmandu Approved'}</span>
                 </div>
               </div>
 
@@ -215,7 +215,7 @@ export default async function ReportsPage({
                         </span>
                         {report.category === 'REGISTRATION_CERTIFICATE' && (
                           <span className="text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300">
-                            🏛️ {lang === 'ne' ? 'जि.प्र.का. काठमाडौं दर्ता प्रमाणित' : 'DAO Kathmandu Verified'}
+                            🏛️ {lang === 'ne' ? 'जि.प्र.का. काठमाण्डौं दर्ता प्रमाणित' : 'DAO Kathmandu Verified'}
                           </span>
                         )}
                         {report.version && (
@@ -234,7 +234,7 @@ export default async function ReportsPage({
                         <p className="text-xs text-gray-600 mt-1 flex flex-wrap items-center gap-2">
                           <span>
                             {lang === 'ne' ? 'दर्ता निकाय: ' : 'Authority: '}
-                            <strong>{report.issuingAuthorityNe || 'जिल्ला प्रशासन कार्यालय, काठमाडौं'}</strong>
+                            <strong>{report.issuingAuthorityNe || 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं'}</strong>
                           </span>
                           <span>•</span>
                           <span>

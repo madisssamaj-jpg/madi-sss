@@ -249,7 +249,7 @@ export default function FeedbackPage({
           <p>🔒 {lang === 'ne' ? 'गोपनीयता प्रत्याभूति: तपाईंको सन्देश तथा फोन नम्बर सार्वजनिक गरिँदैन।' : 'Privacy Guarantee: All submissions are treated strictly confidential and never displayed publicly.'}</p>
           <p>
             {lang === 'ne'
-              ? 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं सचिवालय | सक्रिय र नियमित हेरिने संस्थागत इमेल पुष्टि भएपछि मात्र सार्वजनिक सम्पर्क विवरण थपिनेछ।'
+              ? 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं सचिवालय | सक्रिय र नियमित हेरिने संस्थागत इमेल पुष्टि भएपछि मात्र सार्वजनिक सम्पर्क विवरण थपिनेछ।'
               : 'Madi (Sankhuwasabha) Sarokar Samaj Secretariat | Public contact details will be added once an active and monitored organizational email is confirmed.'}
           </p>
         </div>

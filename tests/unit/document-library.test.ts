@@ -192,7 +192,7 @@ describe('Public Document Library Governance Battery', () => {
       status: 'DRAFT',
       hasSignedStampedPdf: false,
       isApprovedForPublic: false,
-      descriptionNe: 'जि.प्र.का. काठमाडौं दर्ता प्रमाणपत्र प्रतिलिपि।',
+      descriptionNe: 'जि.प्र.का. काठमाण्डौं दर्ता प्रमाणपत्र प्रतिलिपि।',
       descriptionEn: 'Official copy of DAO Kathmandu registration certificate.',
       publicationDate: '२०८२-०४-२१',
       adminNotes: 'Private Admin Note: Document scanned under resolution #4.',

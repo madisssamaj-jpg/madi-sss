@@ -53,7 +53,7 @@ export function MembershipManager({
           </h1>
           <p className="text-xs sm:text-sm text-gray-500 mt-1">
             {lang === 'ne'
-              ? 'काठमाडौं तथा मादीबाट प्राप्त सदस्यता आवेदनहरूको प्रमाणीकरण, स्वीकृति, अस्वीकृति तथा थप विवरण माग कार्यप्रवाह।'
+              ? 'काठमाण्डौं तथा मादीबाट प्राप्त सदस्यता आवेदनहरूको प्रमाणीकरण, स्वीकृति, अस्वीकृति तथा थप विवरण माग कार्यप्रवाह।'
               : 'Review, approve, reject, or request more information for incoming membership applications.'}
           </p>
         </div>
@@ -163,7 +163,7 @@ export function MembershipManager({
                   {selectedApp.madiAddressNe}
                 </div>
                 <div>
-                  <span className="font-semibold text-gray-900">काठमाडौं ठेगाना:</span>{' '}
+                  <span className="font-semibold text-gray-900">काठमाण्डौं ठेगाना:</span>{' '}
                   {selectedApp.currentAddressNe}
                 </div>
                 <div>

@@ -14,7 +14,7 @@ import type { GovernanceReport } from '../../lib/cms/cms-service.ts';
 describe('Official CDO Registration Certificate (दर्ता प्रमाणपत्र) Governance & Privacy', () => {
   it('enforces Internal Only invariant by default (isPublic: false) for registration certificates', async () => {
     const rawCertificateData: Omit<GovernanceReport, 'id'> = {
-      titleNe: 'जिल्ला प्रशासन कार्यालय, काठमाडौं दर्ता प्रमाणपत्र',
+      titleNe: 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं दर्ता प्रमाणपत्र',
       titleEn: 'District Administration Office, Kathmandu Registration Certificate',
       fiscalYear: '२०८२ (2025)',
       category: 'REGISTRATION_CERTIFICATE',
@@ -24,12 +24,12 @@ describe('Official CDO Registration Certificate (दर्ता प्रमा
       fileSizeMb: '0.22 MB',
       isPublic: true, // Even if caller passes true, saveReport must force false for REGISTRATION_CERTIFICATE
       status: 'PUBLISHED',
-      issuingAuthorityNe: 'जिल्ला प्रशासन कार्यालय, काठमाडौं',
+      issuingAuthorityNe: 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं',
       issuingAuthorityEn: 'District Administration Office, Kathmandu',
       registrationDateNe: '२०८२/०४/२१',
       registrationNumber: '१६',
       decisionDateNe: '२०८२/०४/२१',
-      registeredOrgNameNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं',
+      registeredOrgNameNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं',
       verificationStatus: 'PENDING',
       publishRegistrationNumber: false,
       publishRedactedCertificate: false,
@@ -130,8 +130,8 @@ describe('Official CDO Registration Certificate (दर्ता प्रमा
       registrationNumber: '१६',
       decisionDateNe: '२०८२/०४/२१',
       registrationDateNe: '२०८२/०४/२१',
-      issuingAuthorityNe: 'जिल्ला प्रशासन कार्यालय, काठमाडौं',
-      registeredOrgNameNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं',
+      issuingAuthorityNe: 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं',
+      registeredOrgNameNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं',
       publishRegistrationNumber: true,
       publishRedactedCertificate: false,
     };
@@ -183,9 +183,9 @@ describe('Official CDO Registration Certificate (दर्ता प्रमा
     const latest = await getLatestVerifiedCertificate();
     assert.ok(latest);
     assert.equal(latest.verificationStatus, 'VERIFIED');
-    assert.equal(latest.issuingAuthorityNe, 'जिल्ला प्रशासन कार्यालय, काठमाडौं');
+    assert.equal(latest.issuingAuthorityNe, 'जिल्ला प्रशासन कार्यालय, काठमाण्डौं');
     assert.equal(latest.registrationNumber, '१६');
     assert.equal(latest.decisionDateNe, '२०८२/०४/२१');
-    assert.equal(latest.registeredOrgNameNe, 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं');
+    assert.equal(latest.registeredOrgNameNe, 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं');
   });
 });

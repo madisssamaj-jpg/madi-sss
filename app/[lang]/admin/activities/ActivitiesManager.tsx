@@ -33,7 +33,7 @@ export function ActivitiesManager({
       locationNe: 'मादी, संखुवासभा',
       locationEn: 'Madi, Sankhuwasabha',
       category: 'COMMUNITY',
-      organizerNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं',
+      organizerNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं',
       organizerEn: 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu',
       descriptionNe: '',
       descriptionEn: '',
@@ -353,7 +353,7 @@ export function ActivitiesManager({
                   type="text"
                   value={editingItem.organizerNe || ''}
                   onChange={(e) => setEditingItem({ ...editingItem, organizerNe: e.target.value })}
-                  placeholder="मादी (संखुवासभा) सरोकार समाज, काठमाडौं"
+                  placeholder="मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं"
                   className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-1 focus:ring-[#01366E]"
                 />
               </div>

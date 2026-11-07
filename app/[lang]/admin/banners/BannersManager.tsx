@@ -44,9 +44,9 @@ export function BannersManager({
     desktopImageUrl: hero?.desktopImageUrl || '/media/incoming/Chauki-desktop.webp',
     altTextNe: hero?.altTextNe || 'मादी संखुवासभाको प्राकृतिक सौन्दर्य तथा चौकि बजार',
     altTextEn: hero?.altTextEn || 'Scenic landscape of Chauki, Madi, Sankhuwasabha',
-    headingNe: hero?.headingNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं',
+    headingNe: hero?.headingNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं',
     headingEn: hero?.headingEn || 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu',
-    subheadingNe: hero?.subheadingNe || '“मादीदेखि काठमाडौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”',
+    subheadingNe: hero?.subheadingNe || '“मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”',
     subheadingEn: hero?.subheadingEn || '“From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration”',
     ctaLabelNe: hero?.ctaLabelNe || 'अनलाइन सदस्यता आवेदन',
     ctaLabelEn: hero?.ctaLabelEn || 'Apply for Membership',
@@ -254,9 +254,9 @@ export function BannersManager({
               onClick={() => {
                 setHeroForm(hero || {
                   imageUrl: '/media/incoming/Chauki.jpg',
-                  headingNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं',
+                  headingNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं',
                   headingEn: 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu',
-                  subheadingNe: '“मादीदेखि काठमाडौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”',
+                  subheadingNe: '“मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”',
                   subheadingEn: '“From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration”',
                   ctaLabelNe: 'अनलाइन सदस्यता आवेदन',
                   ctaLabelEn: 'Apply for Membership',
@@ -361,10 +361,10 @@ export function BannersManager({
                   </span>
                 </div>
                 <h2 className="text-xl font-extrabold text-[#01366E] mt-2">
-                  {hero?.headingNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं'}
+                  {hero?.headingNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं'}
                 </h2>
                 <p className="text-xs text-gray-500 mt-0.5">
-                  {hero?.subheadingNe || '“मादीदेखि काठमाडौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”'}
+                  {hero?.subheadingNe || '“मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”'}
                 </p>
               </div>
 
@@ -468,11 +468,11 @@ export function BannersManager({
                   </div>
 
                   <h3 className="text-xl sm:text-3xl font-black tracking-tight leading-tight">
-                    {hero?.headingNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं'}
+                    {hero?.headingNe || 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं'}
                   </h3>
 
                   <p className="text-xs sm:text-sm text-blue-100 max-w-xl font-normal leading-relaxed">
-                    {hero?.subheadingNe || '“मादीदेखि काठमाडौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”'}
+                    {hero?.subheadingNe || '“मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”'}
                   </p>
 
                   <div className="pt-2 flex flex-wrap justify-center gap-2">

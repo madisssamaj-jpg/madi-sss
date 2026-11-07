@@ -57,7 +57,7 @@ describe('Official Constitution (विधान) Document & Versioning Workflow
   it('successfully publishes and retrieves the constitution when marked as original approved document', async () => {
     // Publish the official stamped original document
     const originalApprovedData: Omit<GovernanceReport, 'id'> = {
-      titleNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाडौंको विधान (सक्कल दर्ता प्रति)',
+      titleNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौंको विधान (सक्कल दर्ता प्रति)',
       titleEn: 'Constitution of Madi (Sankhuwasabha) Sarokar Samaj (Original Stamped Approved)',
       fiscalYear: '२०८२ (2025)',
       category: 'CONSTITUTION',
@@ -71,7 +71,7 @@ describe('Official Constitution (विधान) Document & Versioning Workflow
       status: 'PUBLISHED',
       isOriginalApprovedDocument: true,
       noPrivateDataConfirmed: true,
-      descriptionNe: 'जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता तथा प्रमाणित आधिकारिक मूल विधान',
+      descriptionNe: 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता तथा प्रमाणित आधिकारिक मूल विधान',
       descriptionEn: 'Official original stamped constitution approved by DAO Kathmandu',
     };
 
@@ -100,7 +100,7 @@ describe('Official Constitution (विधान) Document & Versioning Workflow
 
     // Publish new amendment v1.1
     const newVersionData: Omit<GovernanceReport, 'id'> = {
-      titleNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाडौंको प्रथम संशोधित विधान २०८२',
+      titleNe: 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौंको प्रथम संशोधित विधान २०८२',
       titleEn: 'First Amended Constitution of Madi Sarokar Samaj 2082',
       fiscalYear: '२०८२ (2025)',
       category: 'CONSTITUTION',

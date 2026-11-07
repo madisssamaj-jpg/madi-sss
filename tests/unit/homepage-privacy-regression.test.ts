@@ -226,7 +226,7 @@ describe('Homepage Privacy & Content Governance Regression Suite', () => {
       'Hero must contain Milestone 1 (2076 BS)'
     );
     assert.ok(
-      heroSection.includes('वि.सं. २०८२: ‘मादी (संखुवासभा) सरोकार समाज’ का रूपमा जिल्ला प्रशासन कार्यालय, काठमाडौंमा विधिवत दर्ता'),
+      heroSection.includes('वि.सं. २०८२: ‘मादी (संखुवासभा) सरोकार समाज’ का रूपमा जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा विधिवत दर्ता'),
       'Hero must contain Milestone 2 (2082 BS DAO Registration)'
     );
   });

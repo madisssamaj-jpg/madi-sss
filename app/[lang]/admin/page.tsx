@@ -189,7 +189,7 @@ export default async function AdminDashboardPage({
             </div>
             <p className="text-xs sm:text-sm text-amber-800 leading-relaxed">
               {lang === 'ne'
-                ? 'जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता तथा छाप लागेको सक्कल (Original Approved & Stamped) विधान PDF प्राप्त हुन बाँकी छ। हाल सार्वजनिक वेबसाइटमा विधान डाउनलोड बटन स्वतः लुकाइएको छ र तयारीको सूचना देखाइएको छ।'
+                ? 'जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता तथा छाप लागेको सक्कल (Original Approved & Stamped) विधान PDF प्राप्त हुन बाँकी छ। हाल सार्वजनिक वेबसाइटमा विधान डाउनलोड बटन स्वतः लुकाइएको छ र तयारीको सूचना देखाइएको छ।'
                 : 'Pending upload of the officially stamped and approved Constitution from DAO Kathmandu. Public download buttons remain suppressed with the preparation empty state.'}
             </p>
           </div>

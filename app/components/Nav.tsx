@@ -54,14 +54,14 @@ export default function Nav() {
             <span className="text-[#FB6C01] font-bold">●</span>
             <span className="font-medium">
               {currentLang === 'ne'
-                ? '“मादीदेखि काठमाडौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”'
+                ? '“मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”'
                 : '“From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration”'}
             </span>
           </div>
           <div className="flex items-center gap-3 text-[11px]">
             <span className="flex items-center gap-1 text-slate-300">
               <span>📍</span>
-              <span>{currentLang === 'ne' ? 'काठमाडौं, नेपाल' : 'Kathmandu, Nepal'}</span>
+              <span>{currentLang === 'ne' ? 'काठमाण्डौं, नेपाल' : 'Kathmandu, Nepal'}</span>
             </span>
             <span className="text-white/30">•</span>
             <span className="flex items-center gap-1.5 text-amber-200/95 font-medium">
@@ -88,7 +88,7 @@ export default function Nav() {
             <div className="relative flex items-center justify-center">
               <img
                 src="/media/madi-sss-logo.jpg"
-                alt="मादी (संखुवासभा) सरोकार समाज, काठमाडौं लोगो"
+                alt="मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं लोगो"
                 className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover bg-white border-2 border-[#FB6C01] shadow-md shrink-0 transition-transform duration-200 group-hover:scale-105"
               />
             </div>
@@ -99,7 +99,7 @@ export default function Nav() {
                   : 'Madi (Sankhuwasabha) Sarokar Samaj'}
               </span>
               <span className="text-[10px] sm:text-[11px] text-orange-200 uppercase tracking-wider font-semibold block leading-tight mt-0.5">
-                {currentLang === 'ne' ? 'काठमाडौं, नेपाल' : 'Kathmandu, Nepal'}
+                {currentLang === 'ne' ? 'काठमाण्डौं, नेपाल' : 'Kathmandu, Nepal'}
               </span>
             </div>
           </Link>

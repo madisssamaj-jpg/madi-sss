@@ -19,7 +19,7 @@ export async function generateMetadata({
   return {
     title: {
       default: title,
-      template: `%s | ${lang === 'ne' ? 'मादी (संखुवासभा) सरोकार समाज, काठमाडौं' : 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu'}`,
+      template: `%s | ${lang === 'ne' ? 'मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं' : 'Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu'}`,
     },
     description,
     metadataBase: new URL(baseUrl),

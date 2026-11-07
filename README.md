@@ -1,6 +1,6 @@
 # Madi Sankhuwasabha Sarokar Samaj (Kathmandu) — Web Platform & CMS
 
-Official bilingual web platform and content management administration suite for **Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu** (मादी संखुवासभा सरोकार समाज, काठमाडौं).
+Official bilingual web platform and content management administration suite for **Madi (Sankhuwasabha) Sarokar Samaj, Kathmandu** (मादी संखुवासभा सरोकार समाज, काठमाण्डौं).
 
 Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Supabase (PostgreSQL, Auth, Storage)** with an immutable double-entry financial internal transfer subsystem.
 

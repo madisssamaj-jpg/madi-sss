@@ -36,12 +36,12 @@ This checklist must be reviewed and signed off by the lead developer, the Madi S
   - Email: `info@madisss.org.np`
   - Secretariat: Ward 4, Sukedhara, Kathmandu
 - [x] **Official DAO Registration Certificate (दर्ता प्रमाणपत्र) Verification & Privacy Architecture:**
-  - [x] Authentic CDO certificate uploaded from DAO Kathmandu issuance (Reg No: १६, Decision Date: २०८२/०४/२१, Society Registration Act 2034, Org: मादी (संखुवासभा) सरोकार समाज, काठमाडौं).
+  - [x] Authentic CDO certificate uploaded from DAO Kathmandu issuance (Reg No: १६, Decision Date: २०८२/०४/२१, Society Registration Act 2034, Org: मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं).
   - [x] Original unredacted scan stored in strictly internal quarantine (`internal-docs/certificates/cdo-registration-certificate-2082.jpeg`, `is_public = false`).
   - [x] Raw scan access strictly restricted to Superadmin internal authenticated download; never exposed to public APIs or downloads.
   - [x] Sanitized public version created with personal officer signature and phone number masked (`/documents/cdo-registration-certificate-redacted.jpeg`).
   - [x] Superadmin verification workflow enabled in CMS (`PENDING` / `VERIFIED` / `REJECTED`) with admin notes and immutable audit logging.
-  - [x] Automatic trust badge active upon verification: *"🏛️ जिल्ला प्रशासन कार्यालय, काठमाडौंमा दर्ता प्रमाणित"*.
+  - [x] Automatic trust badge active upon verification: *"🏛️ जिल्ला प्रशासन कार्यालय, काठमाण्डौंमा दर्ता प्रमाणित"*.
   - [x] Public visibility toggles operational for registration number in Footer/About (`publishRegistrationNumber`) and public download of redacted certificate (`publishRedactedCertificate`).
 - [x] **Homepage Hero Image & Incoming Media Quarantine Architecture:**
   - [x] All authentic community photos from `_incoming-photos/` uploaded to Supabase Storage under `media/madi-sss/incoming/` as `status: 'PENDING_REVIEW'`, `isPublic: false`, `category: 'UNSORTED_PENDING_REVIEW'`.

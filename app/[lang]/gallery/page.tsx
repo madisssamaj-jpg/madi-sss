@@ -37,7 +37,7 @@ export default async function GalleryPage({
           </h1>
           <p className="text-gray-600 text-sm sm:text-base">
             {lang === 'ne'
-              ? 'मादी गाउँपालिकादेखि काठमाडौंसम्म सञ्चालित विविध स्वास्थ्य, सामाजिक, सांस्कृतिक तथा मानवीय सेवाका ऐतिहासिक झलकहरू।'
+              ? 'मादी गाउँपालिकादेखि काठमाण्डौंसम्म सञ्चालित विविध स्वास्थ्य, सामाजिक, सांस्कृतिक तथा मानवीय सेवाका ऐतिहासिक झलकहरू।'
               : 'Visual moments of solidarity, health camps, relief distribution, cultural festivals, and community welfare from Madi to Kathmandu.'}
           </p>
         </div>

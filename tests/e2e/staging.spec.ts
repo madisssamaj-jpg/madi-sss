@@ -56,7 +56,7 @@ test.describe('Madi SSS — Staging E2E Verification Battery', () => {
     // 6. Reports & Audits + Constitution
     await page.goto('/ne/reports');
     await expect(page.getByRole('heading', { name: /वार्षिक प्रतिवेदन तथा आधिकारिक विधान/i })).toBeVisible();
-    await expect(page.getByText(/मादी \(संखुवासभा\) सरोकार समाज, काठमाडौंको विधान/i)).toBeVisible();
+    await expect(page.getByText(/मादी \(संखुवासभा\) सरोकार समाज, काठमाण्डौंको विधान/i)).toBeVisible();
     const reportsDownloadBtn = page.getByRole('link', { name: /विधान डाउनलोड गर्नुहोस्/i });
     await expect(reportsDownloadBtn).toBeVisible();
     await expect(reportsDownloadBtn).toHaveAttribute('href', /supabase\.co\/storage/);
@@ -64,7 +64,7 @@ test.describe('Madi SSS — Staging E2E Verification Battery', () => {
 
     // 6b. About Us Page with Constitution Download
     await page.goto('/ne/about');
-    await expect(page.getByRole('heading', { name: /मादी \(संखुवासभा\) सरोकार समाज, काठमाडौं/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /मादी \(संखुवासभा\) सरोकार समाज, काठमाण्डौं/i })).toBeVisible();
     await expect(page.getByText(/२०८२\/०६\/२९ BS/i)).toBeVisible();
     const aboutDownloadBtn = page.getByRole('link', { name: /विधान डाउनलोड गर्नुहोस्/i });
     await expect(aboutDownloadBtn).toBeVisible();
