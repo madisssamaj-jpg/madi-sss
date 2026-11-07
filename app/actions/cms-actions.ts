@@ -8,6 +8,10 @@ import { requireSuperadmin } from '@/lib/auth/admin-session';
 import { validateUploadFile, sanitizeFilename } from '@/lib/storage/supabase-storage';
 import { checkRateLimit } from '@/lib/security/rate-limit';
 import {
+  submitMembershipApplicationToSupabase,
+  submitContactMessageToSupabase,
+} from '@/lib/supabase/data-service';
+import {
   submitMembershipApplication,
   submitFeedback,
   saveSocialActivity,
@@ -128,6 +132,11 @@ export async function submitMembershipApplicationAction(formData: any) {
   try {
     const res = await submitMembershipApplication(parsed.data);
 
+    // Persist to Supabase database (non-blocking)
+    submitMembershipApplicationToSupabase(parsed.data).catch((e) => {
+      console.warn('Supabase membership persistence warning:', e.message);
+    });
+
     // Non-blocking Transactional Emails
     sendMembershipReceivedEmail({
       fullName: res.fullNameNe,
@@ -165,6 +174,11 @@ export async function submitFeedbackAction(formData: any) {
 
   try {
     const res = await submitFeedback(parsed.data);
+
+    // Persist to Supabase database (non-blocking)
+    submitContactMessageToSupabase(parsed.data).catch((e) => {
+      console.warn('Supabase contact message persistence warning:', e.message);
+    });
 
     // Non-blocking Transactional Emails
     sendFeedbackReceivedEmail({

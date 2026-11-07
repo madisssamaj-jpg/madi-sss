@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { getReports, getLatestConstitution, GovernanceReport } from '@/lib/cms/cms-service';
+import { getLatestConstitution, GovernanceReport } from '@/lib/cms/cms-service';
+import { getReportsFromSupabase as getReports } from '@/lib/supabase/data-service';
 
 export default async function ReportsPage({
   params,

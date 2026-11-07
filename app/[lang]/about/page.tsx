@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { getLatestConstitution, getSiteSettings, getLatestVerifiedCertificate } from '@/lib/cms/cms-service';
+import { getLatestConstitution, getLatestVerifiedCertificate } from '@/lib/cms/cms-service';
+import { getOrganizationProfileFromSupabase as getSiteSettings } from '@/lib/supabase/data-service';
 
 export default async function AboutPage({
   params,

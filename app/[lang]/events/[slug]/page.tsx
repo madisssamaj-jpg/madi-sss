@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getEventBySlug } from '@/lib/cms/cms-service';
+import { getEventBySlugFromSupabase as getEventBySlug } from '@/lib/supabase/data-service';
 
 export default async function EventDetailPage({
   params,

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getEvents } from '@/lib/cms/cms-service';
+import { getEventsFromSupabase as getEvents } from '@/lib/supabase/data-service';
 
 export default async function EventsPage({
   params,

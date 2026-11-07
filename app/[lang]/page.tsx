@@ -1,14 +1,16 @@
 import Link from 'next/link';
 import {
   getSocialActivities,
-  getEvents,
   getReliefPrograms,
-  getNotices,
   getBanners,
   getGalleryAlbums,
-  getSiteSettings,
   getHomepageHero,
 } from '@/lib/cms/cms-service';
+import {
+  getEventsFromSupabase as getEvents,
+  getNoticesFromSupabase as getNotices,
+  getOrganizationProfileFromSupabase as getSiteSettings,
+} from '@/lib/supabase/data-service';
 
 export default async function HomePage({
   params,
