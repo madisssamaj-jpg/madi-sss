@@ -137,11 +137,11 @@ export default function Nav() {
         </div>
       </div>
 
-      {/* 3. Main Navigation Bar with All 11 Links (NO hidden class, lg:flex, visible across devices) */}
-      <div className="bg-[#002447] border-t border-white/10 shadow-inner">
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      {/* 3. Main Navigation Bar with All 11 Links */}
+      <div className="bg-[#002447] border-t border-white/10 shadow-inner w-full overflow-visible">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 w-full overflow-visible">
           <nav
-            className="flex lg:flex items-center justify-start lg:justify-center flex-wrap gap-1 sm:gap-1.5 py-1.5 overflow-x-auto scrollbar-none"
+            className="flex lg:flex flex-1 w-full overflow-visible flex-wrap items-center justify-between gap-1 sm:gap-1.5 py-2 text-xs sm:text-[13px] font-semibold"
             aria-label="मुख्य नेभिगेसन मेनु"
           >
             {navLinks.map((link) => {
@@ -153,7 +153,7 @@ export default function Nav() {
                   className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-[13px] font-semibold whitespace-nowrap transition-all ${
                     active
                       ? 'bg-[#FB6C01] text-white shadow-sm font-bold'
-                      : 'text-slate-200 hover:bg-white/10 hover:text-white'
+                      : 'text-slate-100 hover:bg-white/15 hover:text-white'
                   }`}
                 >
                   {link.label}
