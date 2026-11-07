@@ -25,7 +25,7 @@ export default function AdminLoginPage() {
       formData.append('password', password);
       const res = await loginAdminAction(formData);
       if (res.success) {
-        router.push(`/${lang}/admin/transfers`);
+        router.push(`/${lang}/admin`);
       } else {
         setError(res.error || 'Login failed');
       }
