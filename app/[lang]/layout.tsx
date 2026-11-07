@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '../globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import GoogleAnalytics from '../components/GoogleAnalytics';
 import { getSiteSettings } from '@/lib/cms/cms-service';
 import { SITE_URL, ORG_NAME_NE, ORG_NAME_EN, DEFAULT_OG_IMAGE, ORG_LOGO_URL } from '@/lib/seo';
 
@@ -53,6 +54,12 @@ export async function generateMetadata({
       description,
       images: [settings.ogImageUrl ? `${SITE_URL}${settings.ogImageUrl}` : DEFAULT_OG_IMAGE],
     },
+    icons: {
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico',
+      apple: '/apple-touch-icon.png',
+    },
+    manifest: '/manifest.webmanifest',
   };
 }
 
@@ -115,6 +122,7 @@ export default async function LangLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans text-gray-900 bg-slate-50">
+        <GoogleAnalytics />
         <Header />
         <div className="flex-1">{children}</div>
         <Footer />

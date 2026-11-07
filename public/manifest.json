@@ -1,0 +1,26 @@
+{
+  "name": "मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं",
+  "short_name": "Madi SSS",
+  "description": "मादी (संखुवासभा) सरोकार समाजको आधिकारिक मोबाइल तथा वेब पोर्टल।",
+  "start_url": "/ne",
+  "display": "standalone",
+  "background_color": "#01366E",
+  "theme_color": "#01366E",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/media/madi-sss-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
