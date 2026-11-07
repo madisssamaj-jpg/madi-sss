@@ -54,8 +54,8 @@ export default function Nav() {
             <span className="text-[#FB6C01] font-bold">●</span>
             <span className="font-medium">
               {currentLang === 'ne'
-                ? '“मादीदेखि काठमाण्डौंसम्म, एकता, सेवा र सहकार्यको साझा अभियान”'
-                : '“From Madi to Kathmandu, a shared initiative for unity, welfare, and collaboration”'}
+                ? '“मादीदेखि काठमाण्डौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो”'
+                : '“From Madi to Kathmandu — A shared platform for unity, solidarity, and community welfare”'}
             </span>
           </div>
           <div className="flex items-center gap-3 text-[11px]">
@@ -77,27 +77,33 @@ export default function Nav() {
       </div>
 
       {/* 2. Brand Identity & Action CTA Row */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3">
-        <div className="flex items-center justify-between gap-4">
-          {/* LEFT: Clickable Official Organization Logo & Title */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3.5">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
+          {/* LEFT: Clickable Official Organization Logo & Title & Main Heading */}
           <Link
             href={`/${currentLang}`}
-            className="flex items-center gap-3 shrink-0 group hover:opacity-95 transition"
+            className="flex items-center gap-3 sm:gap-4 group hover:opacity-95 transition min-w-0"
             aria-label={currentLang === 'ne' ? 'गृहपृष्ठमा जानुहोस्' : 'Go to Homepage'}
           >
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center shrink-0">
               <img
                 src="/media/madi-sss-logo.jpg"
                 alt="मादी (संखुवासभा) सरोकार समाज, काठमाण्डौं लोगो"
-                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover bg-white border-2 border-[#FB6C01] shadow-md shrink-0 transition-transform duration-200 group-hover:scale-105"
+                className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full object-cover bg-white border-2 border-[#FB6C01] shadow-md shrink-0 transition-transform duration-200 group-hover:scale-105"
               />
             </div>
-            <div className="flex flex-col justify-center">
-              <span className="font-extrabold text-sm sm:text-base lg:text-lg leading-tight text-white tracking-tight group-hover:text-amber-100 transition-colors">
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="font-black text-base sm:text-lg lg:text-xl leading-tight text-white tracking-tight group-hover:text-amber-100 transition-colors">
                 {currentLang === 'ne'
                   ? 'मादी (संखुवासभा) सरोकार समाज'
                   : 'Madi (Sankhuwasabha) Sarokar Samaj'}
               </span>
+              {/* Main Heading Text: Logo छेउमा ठूलो, bold र attractive */}
+              <h2 className="font-bold text-xs sm:text-sm lg:text-[15px] text-amber-300 leading-snug tracking-normal mt-0.5 break-words">
+                {currentLang === 'ne'
+                  ? 'मादीदेखि काठमाण्डौंसम्म — एकता, सद्भाव र सामाजिक सेवाको साझा थलो'
+                  : 'From Madi to Kathmandu — A shared platform for unity, solidarity, and community welfare'}
+              </h2>
               <span className="text-[10px] sm:text-[11px] text-orange-200 uppercase tracking-wider font-semibold block leading-tight mt-0.5">
                 {currentLang === 'ne' ? 'काठमाण्डौं, नेपाल' : 'Kathmandu, Nepal'}
               </span>
@@ -105,7 +111,7 @@ export default function Nav() {
           </Link>
 
           {/* RIGHT: Prominent CTA Button + Lang Switch + Admin Button */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 self-start md:self-center">
             {/* CTA Button: सदस्यता आवेदन */}
             <Link
               href={`/${currentLang}/membership`}
