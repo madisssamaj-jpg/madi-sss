@@ -155,13 +155,14 @@ export default function Footer() {
                     : 'Ward No. 4, Sukedhara, Kathmandu, Nepal'}
                 </span>
               </p>
-              <div className="flex items-start gap-2 text-xs text-amber-200/90 bg-white/5 p-2 rounded-lg border border-white/10 mt-1">
-                <span className="shrink-0 mt-0.5">✉️</span>
-                <span>
-                  {lang === 'ne'
-                    ? 'सक्रिय र नियमित हेरिने संस्थागत इमेल पुष्टि भएपछि मात्र सार्वजनिक सम्पर्क विवरण थपिनेछ।'
-                    : 'Public contact details will be added once an active and monitored organizational email is confirmed.'}
-                </span>
+              <div className="flex items-center gap-2 text-xs text-white bg-white/5 p-2 rounded-lg border border-white/10 mt-1">
+                <span className="shrink-0">✉️</span>
+                <a
+                  href="mailto:info@madisss.org.np"
+                  className="font-bold text-[#FB6C01] hover:text-orange-400 hover:underline transition-colors"
+                >
+                  info@madisss.org.np
+                </a>
               </div>
               <p className="flex items-center gap-2">
                 <span>⏰</span>

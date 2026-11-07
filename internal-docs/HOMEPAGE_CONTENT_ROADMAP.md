@@ -54,7 +54,7 @@
 
 #### ३. गोपनीयता तथा सम्पर्क नीति (Privacy & Contact Rules)
 * कुनै पनि अनधिकृत फोन नम्बर, व्यक्तिगत इमेल, वा अनप्रमाणित तथ्याङ्क समावेश नगर्ने।
-* **सम्पर्क ठेगाना नियम:** सक्रिय र नियमित हेरिने संस्थागत इमेल पुष्टि भएपछि मात्र सार्वजनिक सम्पर्क विवरण थपिनेछ। *(Public contact details will be added only after an active, monitored organizational email address is confirmed.)*
+* **सम्पर्क ठेगाना नियम:** आधिकारिक संस्थागत इमेल: info@madisss.org.np *(Official institutional email address: info@madisss.org.np)*
 * संस्थाको भौतिक सम्पर्क कार्यालय: काठमाण्डौं महानगरपालिका वडा नं. ४, सुकेधारा।
 
 #### ४. सुरक्षित रिक्त अवस्था (Safe Empty State)

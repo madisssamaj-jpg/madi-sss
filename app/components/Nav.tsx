@@ -66,11 +66,13 @@ export default function Nav() {
             <span className="text-white/30">•</span>
             <span className="flex items-center gap-1.5 text-amber-200/95 font-medium">
               <span>✉️</span>
-              <span>
-                {currentLang === 'ne'
-                  ? 'सक्रिय र नियमित हेरिने संस्थागत इमेल पुष्टि भएपछि मात्र सार्वजनिक सम्पर्क विवरण थपिनेछ।'
-                  : 'Public contact details will be added once an active and monitored organizational email is confirmed.'}
-              </span>
+              <a
+                href="mailto:info@madisss.org.np"
+                className="hover:underline hover:text-white transition-colors"
+                title="Official Email"
+              >
+                info@madisss.org.np
+              </a>
             </span>
           </div>
         </div>

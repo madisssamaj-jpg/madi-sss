@@ -104,36 +104,24 @@ describe('Homepage Privacy & Content Governance Regression Suite', () => {
     }
   });
 
-  // Test 3: Regression Test: info@madisss.org.np is removed and replaced with privacy notice
-  it('strictly excludes info@madisss.org.np from public pages and displays active email disclaimer', async () => {
+  // Test 3: Official Communication: info@madisss.org.np is published across Nav, Footer, and Feedback
+  it('publishes official email info@madisss.org.np across public Nav, Footer, and Feedback components', async () => {
     const publicFilesToCheck = [
       path.join(rootDir, 'app', 'components', 'Nav.tsx'),
       path.join(rootDir, 'app', 'components', 'Footer.tsx'),
-      path.join(rootDir, 'app', '[lang]', 'page.tsx'),
       path.join(rootDir, 'app', '[lang]', 'feedback', 'page.tsx'),
-      path.join(rootDir, 'app', '[lang]', 'layout.tsx'),
     ];
 
-    const requiredDisclaimer = 'सक्रिय र नियमित हेरिने संस्थागत इमेल पुष्टि भएपछि मात्र सार्वजनिक सम्पर्क विवरण थपिनेछ।';
+    const officialEmail = 'info@madisss.org.np';
 
     for (const filePath of publicFilesToCheck) {
       const content = fs.readFileSync(filePath, 'utf-8');
       assert.strictEqual(
-        content.includes('info@madisss.org.np'),
-        false,
-        `${path.basename(filePath)} must NOT contain unverified email info@madisss.org.np`
+        content.includes(officialEmail),
+        true,
+        `${path.basename(filePath)} must contain official email ${officialEmail}`
       );
     }
-
-    // Verify presence of disclaimer in Nav, Footer, and Feedback
-    const navContent = fs.readFileSync(path.join(rootDir, 'app', 'components', 'Nav.tsx'), 'utf-8');
-    assert.ok(navContent.includes(requiredDisclaimer), 'Nav must include active email disclaimer');
-
-    const footerContent = fs.readFileSync(path.join(rootDir, 'app', 'components', 'Footer.tsx'), 'utf-8');
-    assert.ok(footerContent.includes(requiredDisclaimer), 'Footer must include active email disclaimer');
-
-    const feedbackContent = fs.readFileSync(path.join(rootDir, 'app', '[lang]', 'feedback', 'page.tsx'), 'utf-8');
-    assert.ok(feedbackContent.includes(requiredDisclaimer), 'Feedback page must include active email disclaimer');
   });
 
   // Test 4: Regression Test: A DRAFT event must NEVER appear as a public notice
