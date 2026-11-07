@@ -259,3 +259,11 @@ DROP POLICY IF EXISTS "Service role full access on admin users" ON public.admin_
 CREATE POLICY "Service role full access on admin users" ON public.admin_users
     FOR ALL TO service_role
     USING (true) WITH CHECK (true);
+
+-- 7. GRANT PERMISSIONS TO ANON AND AUTHENTICATED ROLES
+GRANT USAGE ON SCHEMA public TO anon, authenticated;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO anon, authenticated;
+GRANT INSERT ON public.contact_messages, public.feedback_submissions, public.membership_applications, public.digital_deusi_bhailo, public.social_support_requests TO anon, authenticated;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO anon, authenticated;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT INSERT ON TABLES TO anon, authenticated;
