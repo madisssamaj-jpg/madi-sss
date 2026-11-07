@@ -1,6 +1,32 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getGalleryAlbumBySlug, getMediaItems } from '@/lib/cms/cms-service';
+import { PAGE_SEO, constructPageMetadata, SITE_URL } from '@/lib/seo';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const album = await getGalleryAlbumBySlug(slug);
+
+  if (!album) {
+    return constructPageMetadata(PAGE_SEO.gallery, lang);
+  }
+
+  const title = lang === 'ne' ? album.titleNe : album.titleEn;
+  const description = lang === 'ne' ? album.descriptionNe : album.descriptionEn;
+  const photo = album.coverPhotoUrl ? `${SITE_URL}${album.coverPhotoUrl}` : undefined;
+
+  return constructPageMetadata(PAGE_SEO.gallery, lang, {
+    dynamicTitle: `${title} | मादी सरोकार समाज ग्यालरी`,
+    dynamicDesc: description,
+    dynamicPath: `/gallery/${slug}`,
+    dynamicImage: photo,
+  });
+}
 
 export default async function AlbumDetailPage({
   params,
@@ -68,6 +94,7 @@ export default async function AlbumDetailPage({
                   <img
                     src={item.fileUrl}
                     alt={lang === 'ne' ? item.altTextNe || item.titleNe : item.altTextEn || item.titleEn}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
                   {item.mediaType === 'VIDEO' && (

@@ -1,6 +1,32 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getEventBySlugFromSupabase as getEventBySlug } from '@/lib/supabase/data-service';
+import { PAGE_SEO, constructPageMetadata, SITE_URL } from '@/lib/seo';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const event = await getEventBySlug(slug);
+
+  if (!event) {
+    return constructPageMetadata(PAGE_SEO.events, lang);
+  }
+
+  const title = lang === 'ne' ? event.titleNe : event.titleEn;
+  const description = lang === 'ne' ? event.descriptionNe : event.descriptionEn;
+  const photo = event.featuredImage ? `${SITE_URL}${event.featuredImage}` : undefined;
+
+  return constructPageMetadata(PAGE_SEO.events, lang, {
+    dynamicTitle: `${title} | मादी सरोकार समाज`,
+    dynamicDesc: description,
+    dynamicPath: `/events/${slug}`,
+    dynamicImage: photo,
+  });
+}
 
 export default async function EventDetailPage({
   params,
@@ -30,6 +56,7 @@ export default async function EventDetailPage({
             <img
               src={event.featuredImage}
               alt={lang === 'ne' ? event.titleNe : event.titleEn}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
             <span className="absolute top-4 left-4 bg-[#01366E] text-white text-xs font-bold uppercase px-3 py-1 rounded-full shadow">

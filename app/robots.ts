@@ -1,21 +1,24 @@
 import { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/seo';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://madisss.org.np';
-
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
         disallow: [
+          '/admin',
+          '/admin/*',
+          '/*/admin',
           '/*/admin/*',
+          '/*/admin/login',
           '/api/*',
           '/_next/*',
+          '/private/*',
         ],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }
-

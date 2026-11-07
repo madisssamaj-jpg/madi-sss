@@ -1,6 +1,17 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { PAGE_SEO, constructPageMetadata } from '@/lib/seo';
 import { getLatestConstitution, GovernanceReport } from '@/lib/cms/cms-service';
 import { getReportsFromSupabase as getReports } from '@/lib/supabase/data-service';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return constructPageMetadata(PAGE_SEO.reports, lang);
+}
 
 export default async function ReportsPage({
   params,

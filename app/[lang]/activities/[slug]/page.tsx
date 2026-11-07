@@ -1,6 +1,32 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getSocialActivityBySlug } from '@/lib/cms/cms-service';
+import { PAGE_SEO, constructPageMetadata, SITE_URL } from '@/lib/seo';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const activity = await getSocialActivityBySlug(slug);
+
+  if (!activity) {
+    return constructPageMetadata(PAGE_SEO.activities, lang);
+  }
+
+  const title = lang === 'ne' ? activity.titleNe : activity.titleEn;
+  const description = lang === 'ne' ? activity.descriptionNe : activity.descriptionEn;
+  const photo = activity.photos?.[0] ? `${SITE_URL}${activity.photos[0]}` : undefined;
+
+  return constructPageMetadata(PAGE_SEO.activities, lang, {
+    dynamicTitle: `${title} | मादी सरोकार समाज`,
+    dynamicDesc: description,
+    dynamicPath: `/activities/${slug}`,
+    dynamicImage: photo,
+  });
+}
 
 export default async function ActivityDetailPage({
   params,
@@ -97,7 +123,8 @@ export default async function ActivityDetailPage({
                 <div key={i} className="h-64 rounded-2xl overflow-hidden bg-slate-100">
                   <img
                     src={url}
-                    alt={`Activity photo ${i + 1}`}
+                    alt={lang === 'ne' ? `${activity.titleNe} - तस्बिर ${i + 1}` : `${activity.titleEn} - Photo ${i + 1}`}
+                    loading="lazy"
                     className="w-full h-full object-cover hover:scale-105 transition duration-300"
                   />
                 </div>

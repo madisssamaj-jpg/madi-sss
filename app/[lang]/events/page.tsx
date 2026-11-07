@@ -1,5 +1,16 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { PAGE_SEO, constructPageMetadata } from '@/lib/seo';
 import { getEventsFromSupabase as getEvents } from '@/lib/supabase/data-service';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return constructPageMetadata(PAGE_SEO.events, lang);
+}
 
 export default async function EventsPage({
   params,
@@ -74,6 +85,7 @@ export default async function EventsPage({
                   <img
                     src={evt.featuredImage}
                     alt={lang === 'ne' ? evt.titleNe : evt.titleEn}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                   <span className="absolute top-3 left-3 bg-[#01366E] text-white text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full">

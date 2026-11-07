@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { PAGE_SEO, constructPageMetadata } from '@/lib/seo';
 import {
   getSocialActivities,
   getReliefPrograms,
@@ -11,6 +13,15 @@ import {
   getNoticesFromSupabase as getNotices,
   getOrganizationProfileFromSupabase as getSiteSettings,
 } from '@/lib/supabase/data-service';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return constructPageMetadata(PAGE_SEO.home, lang);
+}
 
 export default async function HomePage({
   params,
@@ -217,6 +228,7 @@ export default async function HomePage({
                   <img
                     src={act.photos[0]}
                     alt={lang === 'ne' ? act.titleNe : act.titleEn}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                   />
                   <span className="absolute top-3 left-3 bg-[#01366E] text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
@@ -392,6 +404,7 @@ export default async function HomePage({
                     <img
                       src={alb.coverPhotoUrl}
                       alt={lang === 'ne' ? alb.titleNe : alb.titleEn}
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                     />
                     <span className="absolute top-3 left-3 bg-[#01366E]/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">

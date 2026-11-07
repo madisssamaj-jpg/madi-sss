@@ -1,5 +1,16 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { PAGE_SEO, constructPageMetadata } from '@/lib/seo';
 import { getGalleryAlbums, GalleryAlbum } from '@/lib/cms/cms-service';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return constructPageMetadata(PAGE_SEO.gallery, lang);
+}
 
 export default async function GalleryPage({
   params,
@@ -86,6 +97,7 @@ export default async function GalleryPage({
                   <img
                     src={album.coverPhotoUrl}
                     alt={lang === 'ne' ? album.titleNe : album.titleEn}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
                   <span className="absolute top-3 left-3 bg-[#01366E]/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider backdrop-blur-sm">

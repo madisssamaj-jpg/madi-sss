@@ -1,5 +1,16 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { PAGE_SEO, constructPageMetadata } from '@/lib/seo';
 import { getSocialActivities } from '@/lib/cms/cms-service';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return constructPageMetadata(PAGE_SEO.activities, lang);
+}
 
 export default async function ActivitiesPage({
   params,
@@ -83,6 +94,7 @@ export default async function ActivitiesPage({
                     <img
                       src={act.photos[0]}
                       alt={lang === 'ne' ? act.titleNe : act.titleEn}
+                      loading="lazy"
                       className="w-full h-full object-cover hover:scale-105 transition duration-300"
                     />
                   ) : (

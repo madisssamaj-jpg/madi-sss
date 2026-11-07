@@ -1,5 +1,16 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { PAGE_SEO, constructPageMetadata } from '@/lib/seo';
 import { getCommitteeMembers, CommitteeMember } from '@/lib/cms/cms-service';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return constructPageMetadata(PAGE_SEO.committee, lang);
+}
 
 export default async function CommitteePage({
   params,
@@ -119,6 +130,7 @@ export default async function CommitteePage({
                       <img
                         src={member.photoUrl}
                         alt={lang === 'ne' ? member.nameNe : member.nameEn}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                       />
                     ) : (
