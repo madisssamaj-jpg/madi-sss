@@ -12,6 +12,17 @@ export function clearRateLimits() {
   memoryBuckets.clear();
 }
 
+/**
+ * Refunds a token to the rate-limit bucket if an operation failed due to
+ * server-side/database infrastructure issues (not a bad user credential).
+ */
+export function refundRateLimit(key: string, amount: number = 1): void {
+  const record = memoryBuckets.get(key);
+  if (record) {
+    record.tokens = Math.min(5, record.tokens + amount);
+  }
+}
+
 export interface RateLimitConfig {
   maxTokens: number;
   refillRatePerSecond: number;

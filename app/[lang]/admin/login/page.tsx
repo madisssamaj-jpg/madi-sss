@@ -81,8 +81,8 @@ export default function AdminLoginPage() {
               </div>
               <p className="mt-1 text-xs text-gray-500">
                 {lang === 'ne'
-                  ? 'सुरक्षाका लागि दर सीमित (Rate-limited) गरिएको छ।'
-                  : 'Rate-limited for cryptographic security.'}
+                  ? 'सुरक्षाका लागि दर सीमितता (अधिकतम ५ पटक प्रयास गर्न सकिने)।'
+                  : 'Protected by rate limiting (max 5 attempts).'}
               </p>
             </div>
 

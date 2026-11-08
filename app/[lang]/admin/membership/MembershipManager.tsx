@@ -64,11 +64,10 @@ export function MembershipManager({
             <button
               key={st}
               onClick={() => setFilter(st)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
-                filter === st
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${filter === st
                   ? 'bg-[#01366E] text-white shadow-sm'
                   : 'bg-slate-100 text-gray-700 hover:bg-slate-200'
-              }`}
+                }`}
             >
               {st}
             </button>
@@ -104,9 +103,8 @@ export function MembershipManager({
                     setSelectedApp(app);
                     setAdminNotes(app.adminNotes || '');
                   }}
-                  className={`p-4 hover:bg-slate-50 cursor-pointer transition flex items-center justify-between gap-4 ${
-                    selectedApp?.id === app.id ? 'bg-blue-50/70 border-l-4 border-[#01366E]' : ''
-                  }`}
+                  className={`p-4 hover:bg-slate-50 cursor-pointer transition flex items-center justify-between gap-4 ${selectedApp?.id === app.id ? 'bg-blue-50/70 border-l-4 border-[#01366E]' : ''
+                    }`}
                 >
                   <div>
                     <div className="flex items-center gap-2">
@@ -125,15 +123,14 @@ export function MembershipManager({
                   </div>
 
                   <span
-                    className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${
-                      app.status === 'PENDING'
+                    className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${app.status === 'PENDING'
                         ? 'bg-amber-100 text-amber-800'
                         : app.status === 'APPROVED'
-                        ? 'bg-emerald-100 text-emerald-800'
-                        : app.status === 'MORE_INFO_REQUESTED'
-                        ? 'bg-blue-100 text-blue-800'
-                        : 'bg-rose-100 text-rose-800'
-                    }`}
+                          ? 'bg-emerald-100 text-emerald-800'
+                          : app.status === 'MORE_INFO_REQUESTED'
+                            ? 'bg-blue-100 text-blue-800'
+                            : 'bg-rose-100 text-rose-800'
+                      }`}
                   >
                     {app.status}
                   </span>

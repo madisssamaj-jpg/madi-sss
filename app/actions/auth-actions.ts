@@ -3,10 +3,10 @@
 
 import bcrypt from 'bcryptjs';
 import { cookies } from 'next/headers.js';
-import { checkRateLimit } from '../../lib/security/rate-limit.ts';
+import { checkRateLimit, refundRateLimit } from '../../lib/security/rate-limit.ts';
 import { createSessionToken } from '../../lib/auth/admin-session.ts';
 import type { AdminSession } from '../../lib/auth/admin-session.ts';
-import { getDbPool } from '../../lib/db/pool.ts';
+import { getDbPool, resetDbPool } from '../../lib/db/pool.ts';
 
 /**
  * Admin login action.
@@ -89,6 +89,8 @@ export async function loginAdminAction(formData: FormData | { email?: string; pa
     }
   } catch (error) {
     console.error('Admin login database error:', error);
+    resetDbPool();
+    refundRateLimit(rateKey);
 
     const isDevelopment =
       process.env.NODE_ENV === 'development' &&
