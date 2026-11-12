@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers.js';
 import crypto from 'crypto';
 import { getDbPool } from '../db/pool.ts';
+import { getSupabaseServerClient } from '../supabase/server.ts';
 
 export interface AdminSession {
   id: string;
@@ -98,26 +99,43 @@ export async function requireSuperadmin(): Promise<AdminSession> {
 
   // Cross-verify against active database state for defense-in-depth
   try {
-    const pool = getDbPool();
-    const client = await pool.connect();
+    let dbRow: any = null;
     try {
-      const res = await client.query(
-        `SELECT id, role, is_active, updated_at FROM public.admin_users WHERE id = $1`,
-        [admin.id]
-      );
-      if (res.rows.length === 0 || res.rows[0].role !== 'SUPERADMIN' || !res.rows[0].is_active) {
-        throw new Error('FORBIDDEN: Superadmin account is inactive or revoked in database.');
-      }
+      const supabase = getSupabaseServerClient(true);
+      const { data } = await supabase
+        .from('admin_users')
+        .select('id, role, is_active, updated_at')
+        .eq('id', admin.id)
+        .maybeSingle();
+      if (data) dbRow = data;
+    } catch {
+      // Fallback to pool
+    }
 
-      // Invalidate session if admin password was reset after this session was issued
-      if (res.rows[0].updated_at) {
-        const dbUpdatedAt = new Date(res.rows[0].updated_at).getTime();
-        if (admin.pwdResetAt && dbUpdatedAt > admin.pwdResetAt + 1000) {
-          throw new Error('FORBIDDEN: Session has been invalidated due to password reset.');
-        }
+    if (!dbRow) {
+      const pool = getDbPool();
+      const client = await pool.connect();
+      try {
+        const res = await client.query(
+          `SELECT id, role, is_active, updated_at FROM public.admin_users WHERE id = $1`,
+          [admin.id]
+        );
+        dbRow = res.rows[0];
+      } finally {
+        client.release();
       }
-    } finally {
-      client.release();
+    }
+
+    if (!dbRow || dbRow.role !== 'SUPERADMIN' || !dbRow.is_active) {
+      throw new Error('FORBIDDEN: Superadmin account is inactive or revoked in database.');
+    }
+
+    // Invalidate session if admin password was reset after this session was issued
+    if (dbRow.updated_at) {
+      const dbUpdatedAt = new Date(dbRow.updated_at).getTime();
+      if (admin.pwdResetAt && dbUpdatedAt > admin.pwdResetAt + 1000) {
+        throw new Error('FORBIDDEN: Session has been invalidated due to password reset.');
+      }
     }
   } catch (dbErr: any) {
     // If database connection is down, fallback to token validation if already verified

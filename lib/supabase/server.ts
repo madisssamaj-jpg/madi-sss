@@ -3,18 +3,19 @@
 // Note: SUPABASE_SERVICE_ROLE_KEY is strictly confined to server-side execution.
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ypcrfeufdghpxhhjexja.supabase.co';
-const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
-const anonKey =
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
-  'sb_publishable_KeDQ012wuBMvJ0LlkQ-HTw_qMoKNgki';
-
 /**
  * Returns a privileged Supabase client for backend/admin operations using service_role key.
  * If service_role key is not configured, gracefully falls back to the anon client.
+ * Environment variables are evaluated dynamically on each call to prevent stale module caching.
  */
 export function getSupabaseServerClient(useServiceRole = true) {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ypcrfeufdghpxhhjexja.supabase.co';
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+  const anonKey =
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+    'sb_publishable_KeDQ012wuBMvJ0LlkQ-HTw_qMoKNgki';
+
   const key = useServiceRole && serviceRoleKey ? serviceRoleKey : anonKey;
   
   return createClient(supabaseUrl, key, {
