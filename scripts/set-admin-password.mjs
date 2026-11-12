@@ -130,8 +130,8 @@ async function setAdminPassword() {
   await client.connect();
 
   try {
-    // 5. Hash the password with bcrypt (salt rounds: 10)
-    const saltRounds = 10;
+    // 5. Hash the password with bcrypt (cost factor: 12)
+    const saltRounds = 12;
     const passwordHash = await bcrypt.hash(password, saltRounds);
 
     // 6. Update only the matching active admin user in public.admin_users
@@ -158,11 +158,34 @@ async function setAdminPassword() {
     }
 
     const updatedUser = updateRes.rows[0];
+
+    // 7. Audit log password reset event in cms_activity_logs
+    try {
+      await client.query(
+        `INSERT INTO public.cms_activity_logs (admin_id, admin_name, action, entity_type, entity_id, details_json)
+         VALUES ($1, $2, $3, $4, $5, $6)`,
+        [
+          updatedUser.id,
+          updatedUser.full_name,
+          'PASSWORD_RESET',
+          'security',
+          updatedUser.id,
+          JSON.stringify({
+            message: 'Superadmin credentials rotated with bcrypt cost factor 12',
+            email: updatedUser.email,
+            timestamp: new Date().toISOString(),
+          }),
+        ]
+      );
+    } catch (logErr) {
+      console.warn('Notice: cms_activity_logs insert skipped:', logErr.message);
+    }
+
     console.log(`\n✓ Password successfully updated and hashed for: ${updatedUser.email}`);
     console.log(`  Name: ${updatedUser.full_name}`);
     console.log(`  Role: ${updatedUser.role}`);
     console.log(`  Status: Active`);
-    // 7. Never print the password or its hash
+    // 8. Never print the password or its hash
     console.log(`  Security Assurance: Plaintext password and hash are NOT printed or logged.`);
   } finally {
     await client.end();

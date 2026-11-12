@@ -8,6 +8,7 @@ export interface AdminSession {
   fullName: string;
   role: 'SUPERADMIN' | 'EDITOR' | 'AUDITOR' | 'COMMUNICATIONS_COORDINATOR';
   isActive: boolean;
+  pwdResetAt?: number;
 }
 
 const SESSION_COOKIE_NAME = 'madi_admin_session';
@@ -64,6 +65,7 @@ export function verifySessionToken(token: string): AdminSession | null {
       fullName: data.fullName,
       role: data.role,
       isActive: data.isActive,
+      pwdResetAt: data.pwdResetAt,
     };
   } catch (err) {
     return null;
@@ -100,11 +102,19 @@ export async function requireSuperadmin(): Promise<AdminSession> {
     const client = await pool.connect();
     try {
       const res = await client.query(
-        `SELECT id, role, is_active FROM public.admin_users WHERE id = $1`,
+        `SELECT id, role, is_active, updated_at FROM public.admin_users WHERE id = $1`,
         [admin.id]
       );
       if (res.rows.length === 0 || res.rows[0].role !== 'SUPERADMIN' || !res.rows[0].is_active) {
         throw new Error('FORBIDDEN: Superadmin account is inactive or revoked in database.');
+      }
+
+      // Invalidate session if admin password was reset after this session was issued
+      if (res.rows[0].updated_at) {
+        const dbUpdatedAt = new Date(res.rows[0].updated_at).getTime();
+        if (admin.pwdResetAt && dbUpdatedAt > admin.pwdResetAt + 1000) {
+          throw new Error('FORBIDDEN: Session has been invalidated due to password reset.');
+        }
       }
     } finally {
       client.release();

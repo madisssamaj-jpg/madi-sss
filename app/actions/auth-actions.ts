@@ -85,6 +85,7 @@ export async function loginAdminAction(formData: FormData | { email?: string; pa
         fullName: adminRow.full_name,
         role: adminRow.role,
         isActive: adminRow.is_active,
+        pwdResetAt: Date.now(),
       };
 
       const token = createSessionToken(admin);
