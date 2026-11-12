@@ -6,8 +6,9 @@ const cspHeader = `
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   img-src 'self' blob: data: https://images.unsplash.com https://upload.wikimedia.org https://*.supabase.co https://www.google-analytics.com https://www.googletagmanager.com;
   font-src 'self' data: https://fonts.gstatic.com;
-  connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com;
+  connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com;
   frame-ancestors 'none';
+  frame-src 'self' https://*.supabase.co;
   base-uri 'self';
   form-action 'self';
 `.replace(/\s{2,}/g, ' ').trim();

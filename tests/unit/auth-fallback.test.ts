@@ -18,6 +18,6 @@ describe('loginAdminAction dev fallback security', () => {
     const result = await loginAdminAction({ email: 'admin@localhost.com' });
     assert.equal(result.success, false);
     // In production, when DB fails, dev fallback must NEVER activate
-    assert.equal(result.error, 'Authentication service temporarily unavailable.');
+    assert.equal(result.error, 'सर्भरसँग जोडिन सकिएन।');
   });
 });

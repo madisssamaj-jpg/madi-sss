@@ -35,7 +35,6 @@ export function getDbPool(): Pool {
   try {
     const parsed = new URL(rawUrl);
     config = {
-      connectionString: rawUrl,
       host: parsed.hostname,
       port: parseInt(parsed.port || '5432', 10),
       database: parsed.pathname.replace(/^\//, ''),
