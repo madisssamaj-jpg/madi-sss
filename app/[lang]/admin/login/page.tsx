@@ -25,12 +25,20 @@ export default function AdminLoginPage() {
       formData.append('password', password);
       const res = await loginAdminAction(formData);
       if (res.success) {
-        router.push(`/${lang}/admin`);
+        window.location.href = `/${lang}/admin`;
       } else {
         setError(res.error || 'Login failed');
       }
     } catch (err: any) {
-      setError(err.message || 'An unexpected error occurred');
+      if (err?.message === 'Failed to fetch') {
+        setError(
+          lang === 'ne'
+            ? 'सर्भरसँग जडान हुन सकेन (Failed to fetch)। कृपया पेज रिफ्रेस (Ctrl+F5) गर्नुहोस् वा https://www.madisss.org.np बाट पुनः प्रयास गर्नुहोस्।'
+            : 'Connection error (Failed to fetch). Please hard-refresh (Ctrl+F5) or retry on https://www.madisss.org.np.'
+        );
+      } else {
+        setError(err.message || 'An unexpected error occurred');
+      }
     } finally {
       setLoading(false);
     }

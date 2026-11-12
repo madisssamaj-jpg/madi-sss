@@ -5,6 +5,14 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const { pathname } = url;
 
+  // 0. Canonical domain redirect: ensure all traffic is on www.madisss.org.np
+  const host = request.headers.get('host') || '';
+  if (host === 'madisss.org.np') {
+    url.host = 'www.madisss.org.np';
+    url.protocol = 'https:';
+    return NextResponse.redirect(url, 301);
+  }
+
   // 1. Root redirect to default locale (/ne)
   if (pathname === '/') {
     url.pathname = '/ne';
