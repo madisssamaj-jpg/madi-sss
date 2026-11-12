@@ -20,10 +20,7 @@ export default function AdminLoginPage() {
     setLoading(true);
 
     try {
-      const formData = new FormData();
-      formData.append('email', email);
-      formData.append('password', password);
-      const res = await loginAdminAction(formData);
+      const res = await loginAdminAction({ email, password });
       if (res.success) {
         window.location.href = `/${lang}/admin`;
       } else {

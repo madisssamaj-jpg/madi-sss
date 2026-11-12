@@ -37,13 +37,13 @@ export async function loginAdminAction(formData: FormData | { email?: string; pa
 
   // Rate‑limit key – scoped per email and IP to avoid locking out legitimate users if an attacker spams
   const rateKey = `admin-login:${email}:${clientIp}`;
-  const rate = checkRateLimit(rateKey, { maxTokens: 5, refillRatePerSecond: 0.1, lockoutDurationSeconds: 900 });
+  const rate = checkRateLimit(rateKey, { maxTokens: 5, refillRatePerSecond: 0.2, lockoutDurationSeconds: 60 });
 
   if (!rate.allowed) {
-    const minutes = Math.ceil(rate.retryAfterSeconds / 60);
+    const seconds = rate.retryAfterSeconds;
     return {
       success: false,
-      error: `धेरै प्रयास भयो, ${minutes > 1 ? `${minutes} मिनेटपछि` : `${rate.retryAfterSeconds} सेकेन्डपछि`} पुनः प्रयास गर्नुहोस्।`,
+      error: `धेरै प्रयास भयो, कृपया ${seconds} सेकेन्डपछि पुनः प्रयास गर्नुहोस्।`,
     };
   }
 
@@ -162,7 +162,22 @@ export async function loginAdminAction(formData: FormData | { email?: string; pa
       return { success: true, user: devAdmin };
     }
 
-    return { success: false, error: 'सर्भरसँग जोडिन सकिएन।' };
+    const missingEnvs = [];
+    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) missingEnvs.push('SUPABASE_SERVICE_ROLE_KEY');
+    if (!process.env.DATABASE_URL && !process.env.POSTGRES_URL) missingEnvs.push('DATABASE_URL');
+
+    if (missingEnvs.length > 0) {
+      return {
+        success: false,
+        error: `सर्भरसँग जोडिन सकिएन: Vercel मा वातावरण चर (${missingEnvs.join(', ')}) छुटेको छ।`,
+      };
+    }
+
+    const errObj = error as any;
+    return {
+      success: false,
+      error: `सर्भरसँग जोडिन सकिएन (${errObj?.code || errObj?.message || 'Connection Error'})।`,
+    };
   }
 }
 

@@ -46,7 +46,7 @@ export interface RateLimitConfig {
  */
 export function checkRateLimit(
   key: string,
-  config: RateLimitConfig = { maxTokens: 5, refillRatePerSecond: 0.1, lockoutDurationSeconds: 900 }
+  config: RateLimitConfig = { maxTokens: 5, refillRatePerSecond: 0.2, lockoutDurationSeconds: 60 }
 ): { allowed: boolean; remaining: number; retryAfterSeconds: number; isLocked?: boolean } {
   const now = Date.now();
   let record = memoryBuckets.get(key);
